@@ -35,6 +35,8 @@ Route::post('logout', [App\Http\Controllers\Api\AuthController::class, 'logout']
 
 Route::get('/home', [AuthController::class, 'Home'])->name('home')->middleware(JwtAuthMiddleware::class);
 
+Route::get('/weather', [App\Http\Controllers\MainController::class, 'weather'])->name('weather');
+
 // Post
 //Route::post('posts/create', [App\Http\Controllers\Api\PostController::class, 'create'])->middleware('jwtAuth');
 //Route::post('posts/edit', [App\Http\Controllers\Api\PostController::class, 'update'])->middleware('jwtAuth');

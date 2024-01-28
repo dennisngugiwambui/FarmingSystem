@@ -18,4 +18,9 @@ class MainController extends Controller
     {
         return view('Auth.login');
     }
+
+    public function weather()
+    {
+        return view('Homepage.weather');
+    }
 }

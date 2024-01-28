@@ -8,15 +8,15 @@
                         <h4 class="text-white mb-4">Get In Touch</h4>
                         <div class="d-flex mb-2">
                             <i class="bi bi-geo-alt text-white me-2"></i>
-                            <p class="text-white mb-0">123 Street, New York, USA</p>
+                            <p class="text-white mb-0">P.O. Box 109 – 60400 Chuka, Kenya 020 231</p>
                         </div>
                         <div class="d-flex mb-2">
                             <i class="bi bi-envelope-open text-white me-2"></i>
-                            <p class="text-white mb-0">info@example.com</p>
+                            <p class="text-white mb-0">info@farmsystem.com</p>
                         </div>
                         <div class="d-flex mb-2">
                             <i class="bi bi-telephone text-white me-2"></i>
-                            <p class="text-white mb-0">+012 345 67890</p>
+                            <p class="text-white mb-0">+254794834319</p>
                         </div>
                         <div class="d-flex mt-4">
                             <a class="btn btn-secondary btn-square rounded-circle me-2" href="#"><i class="fab fa-twitter"></i></a>
@@ -53,7 +53,7 @@
                 <div class="d-flex flex-column align-items-center justify-content-center text-center h-100 bg-secondary p-5">
                     <h4 class="text-white">Newsletter</h4>
                     <h6 class="text-white">Subscribe Our Newsletter</h6>
-                    <p>Amet justo diam dolor rebum lorem sit stet sea justo kasd</p>
+                    <p>Subscribe to our system to get daily updates</p>
                     <form action="">
                         <div class="input-group">
                             <input type="text" class="form-control border-white p-3" placeholder="Your Email">

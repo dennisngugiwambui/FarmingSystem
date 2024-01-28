@@ -95,11 +95,14 @@
                             <p class="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
                         </div>
                     </div>
+                    <!-- Explore Button -->
+                    <a href="/weather" class="btn btn-primary mt-4">Explore weather</a>
                 </div>
             </div>
         </div>
     </div>
     <!-- About End -->
+
 
 
     <!-- Facts Start -->
