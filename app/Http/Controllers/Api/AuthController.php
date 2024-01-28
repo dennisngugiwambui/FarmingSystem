@@ -1,13 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\Api;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
-use Tymon\JWTAuth\Facades\JWTAuth;
 use Exception;
 use Illuminate\Support\Facades\Log;
-
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -16,9 +15,13 @@ class AuthController extends Controller
 {
     public function login(Request $request)
     {
+        $this->validate($request, [
+            'phone' => 'required',
+            'password' => 'required',
+        ]);
+
         try {
             $credentials = $request->only(['phone', 'password']);
-
 
             if (!$token = Auth::attempt($credentials)) {
                 return response()->json([
@@ -26,10 +29,8 @@ class AuthController extends Controller
                 ]);
             }
 
-
             // Generate an expiration time for the token (e.g., 1 hour)
             $expiration = now()->addHours(1)->timestamp;
-
 
             return response()->json([
                 'success' => true,
@@ -45,10 +46,16 @@ class AuthController extends Controller
         }
     }
 
-
     public function register(Request $request)
     {
         try {
+            $this->validate($request, [
+                'username' => 'required',
+                'phone' => 'required|min:10|max:13|unique:users,phone',
+                'email' => 'email|required|unique:users,email',
+                'password' => 'required:min:8',
+            ]);
+
             $encryptedPassword = Hash::make($request->password);
 
             $user = new User;
@@ -56,10 +63,10 @@ class AuthController extends Controller
             $user->phone = $request->phone;
             $user->email = $request->email;
             $user->password = $encryptedPassword;
-            $user->status='unverified';
-            //$user->save();
+            $user->status = 'unverified';
 
-            dd($user);
+            // Save the user after validation
+            $user->save();
 
             // After registration, log in the user
             Auth::login($user);
@@ -77,7 +84,6 @@ class AuthController extends Controller
         }
     }
 
-
     public function logout(Request $request)
     {
         try {
@@ -91,6 +97,3 @@ class AuthController extends Controller
         }
     }
 }
-
-
-

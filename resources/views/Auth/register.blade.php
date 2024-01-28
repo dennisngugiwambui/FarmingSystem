@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -13,6 +15,7 @@
             min-height: 100vh;
             background: url('https://media.istockphoto.com/id/1389848476/photo/cropped-shot-of-a-farmer-holding-soil.jpg?s=2048x2048&w=is&k=20&c=xXGgy7Wc0vIW4Jje7-yjOQ87oRPYfRpD0hidb_gRoZc=') center/cover no-repeat;
             background-size: cover;
+            background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
         }
 
         .login-container {
@@ -51,15 +54,6 @@
             color: #555;
         }
 
-        input {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
         .login-btn {
             width: 100%;
             padding: 10px;
@@ -74,6 +68,27 @@
 
         .login-btn:hover {
             background-color: #324190;
+        }
+
+        .want-to-login {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .want-to-login a {
+            color: #4e54c8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .want-to-login a:hover {
+            color: #324190;
+        }
+        .login-image {
+            flex: 1;
+            background: url('https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L3Jhd3BpeGVsb2ZmaWNlMTFfcGhvdG9fb2ZfYWZyaWNhbl9mYXJtZXJfaGFydmVzdGluZ192ZWdldGFibGVfZl9kZTY2YmE1ZC0wMmJmLTRhNmUtYWJiNC03YmFkNWNiMzc0OTNfMS5qcGc.jpg') center/cover no-repeat;
         }
 
         @media only screen and (max-width: 768px) {
@@ -95,27 +110,57 @@
         <div class="login-header">
             <h2>Register</h2>
         </div>
-        <div class="form-group">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" placeholder="Enter your username">
+        <form method="POST" action="{{ route('register') }}">
+            @csrf
+
+            <div class="form-group input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                </div>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username">
+            </div>
+
+            <div class="form-group input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                </div>
+                <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter your phone">
+            </div>
+
+            <div class="form-group input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                </div>
+                <input type="email" class="form-control" id="email" {{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" placeholder="Enter your email">
+            </div>
+
+            @if ($errors->has('email'))
+                <span class="invalid-feedback text-red">
+                    <strong>{{ $errors->first('email') }}</strong>
+                </span>
+            @endif
+
+
+            <div class="form-group input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                </div>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password">
+            </div>
+
+            <div class="form-group input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                </div>
+                <input type="password" class="form-control" id="confirm-password" name="confirm-password" placeholder="Re-enter your password">
+            </div>
+
+            <button class="login-btn" type="submit">Register</button>
+        </form>
+
+        <div class="want-to-login">
+            <span>Already have an account? </span><a href="#"><i class="fa fa-sign-in-alt"></i> Login here</a>
         </div>
-        <div class="form-group">
-            <label for="phone">Phone:</label>
-            <input type="tel" id="phone" name="phone" placeholder="Enter your phone">
-        </div>
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email">
-        </div>
-        <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="Enter your password">
-        </div>
-        <div class="form-group">
-            <label for="confirm-password">Re-enter Password:</label>
-            <input type="password" id="confirm-password" name="confirm-password" placeholder="Re-enter your password">
-        </div>
-        <button class="login-btn" type="submit">Register</button>
     </div>
 </div>
 
