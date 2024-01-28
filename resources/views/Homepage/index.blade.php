@@ -51,15 +51,15 @@
                 <div class="col-md-6">
                     <div class="bg-primary bg-vegetable d-flex flex-column justify-content-center p-5" style="height: 300px;">
                         <h3 class="text-white mb-3">Organic Vegetables</h3>
-                        <p class="text-white">Our farm specializes in growing a variety of organic vegetables. From crispy lettuce to juicy tomatoes, we cultivate them all with care and dedication to provide you with the freshest produce.</p>
-                        <a class="text-white fw-bold" href="#">Read More<i class="bi bi-arrow-right ms-2"></i></a>
+                        <p class="text-white">Dolor magna ipsum elitr sea erat elitr amet ipsum stet justo dolor, amet lorem diam no duo sed dolore amet diam</p>
+                        <a class="text-white fw-bold" href="">Read More<i class="bi bi-arrow-right ms-2"></i></a>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="bg-secondary bg-fruit d-flex flex-column justify-content-center p-5" style="height: 300px;">
                         <h3 class="text-white mb-3">Organic Fruits</h3>
-                        <p class="text-white">Indulge in the natural sweetness of our organic fruits. From succulent strawberries to luscious oranges, our orchards are brimming with the finest produce that nature has to offer.</p>
-                        <a class="text-white fw-bold" href="#">Read More<i class="bi bi-arrow-right ms-2"></i></a>
+                        <p class="text-white">Dolor magna ipsum elitr sea erat elitr amet ipsum stet justo dolor, amet lorem diam no duo sed dolore amet diam</p>
+                        <a class="text-white fw-bold" href="">Read More<i class="bi bi-arrow-right ms-2"></i></a>
                     </div>
                 </div>
             </div>
@@ -68,40 +68,38 @@
     <!-- Banner Start -->
 
 
-
-    <!-- Weather Start -->
+    <!-- About Start -->
     <div class="container-fluid about pt-5">
         <div class="container">
             <div class="row gx-5">
                 <div class="col-lg-6 mb-5 mb-lg-0">
                     <div class="d-flex h-100 border border-5 border-primary border-bottom-0 pt-4">
-                        <img class="img-fluid mt-auto mx-auto" src="{{asset('Homepage/img/weather.jpg')}}">
+                        <img class="img-fluid mt-auto mx-auto" src="img/about.png">
                     </div>
                 </div>
                 <div class="col-lg-6 pb-5">
                     <div class="mb-3 pb-2">
                         <h6 class="text-primary text-uppercase">About Us</h6>
-                        <h1 class="display-5">Empowering Farmers for Sustainable Agriculture</h1>
+                        <h1 class="display-5">We Produce Organic Food For Your Family</h1>
                     </div>
-                    <p class="mb-4">Our mission is to empower farmers and enhance sustainable agriculture practices. We believe in providing farmers with the tools and information they need to make informed decisions, ultimately leading to higher yields and healthier crops. </p>
+                    <p class="mb-4">Tempor erat elitr at rebum at at clita. Diam dolor diam ipsum et tempor sit. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet magna</p>
                     <div class="row gx-5 gy-4">
                         <div class="col-sm-6">
                             <i class="fa fa-seedling display-1 text-secondary"></i>
-                            <h4>Weather-Informed Agriculture</h4>
-                            <p class="mb-0">Our platform provides farmers with real-time weather information to help them plan and manage their agricultural activities more effectively.</p>
+                            <h4>100% Organic</h4>
+                            <p class="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
                         </div>
                         <div class="col-sm-6">
                             <i class="fa fa-award display-1 text-secondary"></i>
-                            <h4>Award-Winning Recognition</h4>
-                            <p class="mb-0">We recognize and celebrate the dedication and hard work of farmers through annual awards, honoring those who contribute significantly to the agricultural community.</p>
+                            <h4>Award Winning</h4>
+                            <p class="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Weather End -->
-
+    <!-- About End -->
 
 
     <!-- Facts Start -->
