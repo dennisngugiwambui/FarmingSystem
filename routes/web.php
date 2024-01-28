@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Api\AuthController;
+use App\Http\Middleware\JwtAuthMiddleware;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,16 +17,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+Route::get('/', [App\Http\Controllers\MainController::class, 'index'])->name('index');
 
 Route::post('login', [App\Http\Controllers\Api\AuthController::class, 'login'])->name('login');
+Route::get('/auth/login', [App\Http\Controllers\MainController::class, 'login'])->name('login.auth');
 
 Route::post('register', [App\Http\Controllers\Api\AuthController::class, 'register'])->name('register');
-Route::get('/auth/register', [App\Http\Controllers\MainController::class, 'index']);
+Route::get('/auth/register', [App\Http\Controllers\MainController::class, 'register'])->name('register.auth');
 
-Route::get('logout', [App\Http\Controllers\Api\AuthController::class, 'logout'])->name('logout');
+Route::post('logout', [App\Http\Controllers\Api\AuthController::class, 'logout'])->name('logout');
+
+
+
+Route::get('/home', [AuthController::class, 'Home'])->name('home')->middleware(JwtAuthMiddleware::class);
 
 // Post
 //Route::post('posts/create', [App\Http\Controllers\Api\PostController::class, 'create'])->middleware('jwtAuth');

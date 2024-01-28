@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -79,6 +82,22 @@
             flex: 1;
             background: url('https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L3Jhd3BpeGVsb2ZmaWNlMTFfcGhvdG9fb2ZfYWZyaWNhbl9mYXJtZXJfaGFydmVzdGluZ192ZWdldGFibGVfZl9kZTY2YmE1ZC0wMmJmLTRhNmUtYWJiNC03YmFkNWNiMzc0OTNfMS5qcGc.jpg') center/cover no-repeat;
         }
+        .want-to-login {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .want-to-login a {
+            color: #4e54c8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .want-to-login a:hover {
+            color: #324190;
+        }
 
         @media only screen and (max-width: 768px) {
             .login-container {
@@ -93,23 +112,59 @@
 </head>
 <body>
 
+
 <div class="login-container">
     <div class="login-image"></div>
     <div class="login-content">
         <div class="login-header">
             <h2>Login</h2>
         </div>
-        <div class="form-group">
-            <label for="phone">Phone:</label>
-            <input type="tel" id="phone" name="phone" placeholder="Enter your phone">
+
+        <form action="{{route('login')}}" method="post">
+            @csrf
+            <!-- Phone field -->
+            <div class="form-group input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                </div>
+                <input type="number" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" id="phone" name="phone" placeholder="Enter your phone">
+                @if ($errors->has('phone'))
+                    <span class="invalid-feedback text-red">
+                        <strong>{{ $errors->first('phone') }}</strong>
+                    </span>
+                @endif
+            </div>
+
+            <!-- Password field -->
+            <div class="form-group input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                </div>
+                <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" id="password" name="password" placeholder="Enter your password">
+                @if ($errors->has('password'))
+                    <span class="invalid-feedback text-red">
+                        <strong>{{ $errors->first('password') }}</strong>
+                    </span>
+                @endif
+            </div>
+
+            <button class="login-btn" type="submit">Login</button>
+        </form>
+
+        <div class="want-to-login">
+            <span>Don't have an account? </span><a href="{{route('register.auth')}}"><i class="fa fa-sign-in-alt"></i> Register</a>
         </div>
-        <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="Enter your password">
-        </div>
-        <button class="login-btn" type="submit">Login</button>
     </div>
 </div>
+
+<!-- Include Bootstrap and Font Awesome JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+{!! Toastr::message() !!}
 
 </body>
 </html>

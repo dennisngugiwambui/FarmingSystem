@@ -2,50 +2,62 @@
 
 namespace App\Http\Controllers\Api;
 
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Exception;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Validation\Rule;
+
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use function Laravel\Prompts\error;
 
 class AuthController extends Controller
 {
+
     public function login(Request $request)
     {
         $this->validate($request, [
-            'phone' => 'required',
+            'phone' => [
+                'required',
+                Rule::exists('users')->where(function ($query) use ($request) {
+                    return $query->where('phone', $request->phone);
+                }),
+            ],
             'password' => 'required',
         ]);
+
 
         try {
             $credentials = $request->only(['phone', 'password']);
 
             if (!$token = Auth::attempt($credentials)) {
-                return response()->json([
-                    'success' => false
+                // If login attempt fails, show error and redirect back with errors
+                return redirect()->back()->withInput()->withErrors([
+                    'login_error' => 'Invalid credentials. Please check your phone and password.',
                 ]);
             }
 
             // Generate an expiration time for the token (e.g., 1 hour)
             $expiration = now()->addHours(1)->timestamp;
 
-            return response()->json([
-                'success' => true,
+            // Show success message and redirect to home route
+            Toastr::success('Login successful.', 'Success');
+            return redirect()->route('home')->with([
                 'token' => $token,
                 'expires_at' => $expiration,
                 'user' => Auth::user(),
             ]);
         } catch (Exception $e) {
-            return response()->json([
-                'success' => false,
-                'message' => 'invalid credentials',
-            ]);
+            // If an exception occurs, show error and redirect back
+            Toastr::error('An error occurred while logging in.', 'Error');
+            return redirect()->back()->withInput();
         }
     }
-
     public function register(Request $request)
     {
         try {
@@ -53,7 +65,8 @@ class AuthController extends Controller
                 'username' => 'required',
                 'phone' => 'required|min:10|max:13|unique:users,phone',
                 'email' => 'email|required|unique:users,email',
-                'password' => 'required:min:8',
+                'password' => 'required|min:8',
+                'confirm-password' => 'required|same:password',
             ]);
 
             $encryptedPassword = Hash::make($request->password);
@@ -71,13 +84,14 @@ class AuthController extends Controller
             // After registration, log in the user
             Auth::login($user);
 
-            return response()->json([
+            return redirect()->route('home')->with([
                 'success' => true,
                 'message' => 'User registered and logged in successfully',
-                'user' => $user,
             ]);
+        } catch (ValidationException $e) {
+            return redirect()->back()->withErrors($e->validator->getMessageBag())->withInput();
         } catch (Exception $e) {
-            return response()->json([
+            return redirect()->back()->with([
                 'success' => false,
                 'message' => 'An error occurred while registering: ' . $e->getMessage(),
             ]);
@@ -90,10 +104,18 @@ class AuthController extends Controller
             // Invalidate the token instead of parsing it
             Auth::logout();
 
-            return response()->json(['success' => true]);
+            //return response()->json(['success' => true]);
+            return redirect()->route('index')->with('success', 'Logout successful');
         } catch (Exception $e) {
             Log::error('Error invalidating token: ' . $e->getMessage());
-            return response()->json(['error' => 'Could not parse token']);
+            Toastr::error('Error invalidating token: ' . $e->getMessage(), 'Error');
+            return redirect()->back();
+            //return response()->json(['error' => 'Could not parse token']);
         }
+    }
+
+    public function Home()
+    {
+        return view('Farmer.home');
     }
 }

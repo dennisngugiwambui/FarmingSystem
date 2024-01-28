@@ -110,56 +110,82 @@
         <div class="login-header">
             <h2>Register</h2>
         </div>
-        <form method="POST" action="{{ route('register') }}">
+        <form action="{{ route('register') }}" method="POST">
             @csrf
 
+            <div class="form-group input-group mb-3">
+                <!-- Other fields ... -->
+            </div>
+
+            <!-- Username field -->
             <div class="form-group input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-user"></i></span>
                 </div>
-                <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username">
+                <input type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" id="username" name="username" placeholder="Enter your username">
+                @if ($errors->has('username'))
+                    <span class="invalid-feedback text-red">
+                        <strong>{{ $errors->first('username') }}</strong>
+                    </span>
+                @endif
             </div>
 
+            <!-- Phone field -->
             <div class="form-group input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-phone"></i></span>
                 </div>
-                <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter your phone">
+                <input type="number" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" id="phone" name="phone" placeholder="Enter your phone">
+                @if ($errors->has('phone'))
+                    <span class="invalid-feedback text-red">
+                        <strong>{{ $errors->first('phone') }}</strong>
+                    </span>
+                @endif
             </div>
 
+            <!-- Email field -->
             <div class="form-group input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-envelope"></i></span>
                 </div>
-                <input type="email" class="form-control" id="email" {{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" placeholder="Enter your email">
+                <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" id="email" name="email" placeholder="Enter your email">
+                @if ($errors->has('email'))
+                    <span class="invalid-feedback text-red">
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </span>
+                @endif
             </div>
 
-            @if ($errors->has('email'))
-                <span class="invalid-feedback text-red">
-                    <strong>{{ $errors->first('email') }}</strong>
-                </span>
-            @endif
-
-
+            <!-- Password field -->
             <div class="form-group input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-lock"></i></span>
                 </div>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password">
+                <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" id="password" name="password" placeholder="Enter your password">
+                @if ($errors->has('password'))
+                    <span class="invalid-feedback text-red">
+                        <strong>{{ $errors->first('password') }}</strong>
+                    </span>
+                @endif
             </div>
 
+            <!-- Confirm Password field -->
             <div class="form-group input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-lock"></i></span>
                 </div>
-                <input type="password" class="form-control" id="confirm-password" name="confirm-password" placeholder="Re-enter your password">
+                <input type="password" class="form-control{{ $errors->has('confirm-password') ? ' is-invalid' : '' }}" id="confirm-password" name="confirm-password" placeholder="Re-enter your password">
+                @if ($errors->has('confirm-password'))
+                    <span class="invalid-feedback text-red">
+                        <strong>{{ $errors->first('confirm-password') }}</strong>
+                    </span>
+                @endif
             </div>
 
             <button class="login-btn" type="submit">Register</button>
         </form>
-
         <div class="want-to-login">
-            <span>Already have an account? </span><a href="#"><i class="fa fa-sign-in-alt"></i> Login here</a>
+            <span>Already have an account? </span><a href="{{route('login.auth')}}"><i class="fa fa-sign-in-alt"></i> Login here</a>
         </div>
     </div>
 </div>
