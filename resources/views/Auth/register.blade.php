@@ -75,10 +75,6 @@
         .login-btn:hover {
             background-color: #324190;
         }
-        .login-image {
-            flex: 1;
-            background: url('https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L3Jhd3BpeGVsb2ZmaWNlMTFfcGhvdG9fb2ZfYWZyaWNhbl9mYXJtZXJfaGFydmVzdGluZ192ZWdldGFibGVfZl9kZTY2YmE1ZC0wMmJmLTRhNmUtYWJiNC03YmFkNWNiMzc0OTNfMS5qcGc.jpg') center/cover no-repeat;
-        }
 
         @media only screen and (max-width: 768px) {
             .login-container {
@@ -97,17 +93,29 @@
     <div class="login-image"></div>
     <div class="login-content">
         <div class="login-header">
-            <h2>Login</h2>
+            <h2>Register</h2>
+        </div>
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username">
         </div>
         <div class="form-group">
             <label for="phone">Phone:</label>
             <input type="tel" id="phone" name="phone" placeholder="Enter your phone">
         </div>
         <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email">
+        </div>
+        <div class="form-group">
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" placeholder="Enter your password">
         </div>
-        <button class="login-btn" type="submit">Login</button>
+        <div class="form-group">
+            <label for="confirm-password">Re-enter Password:</label>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="Re-enter your password">
+        </div>
+        <button class="login-btn" type="submit">Register</button>
     </div>
 </div>
 
