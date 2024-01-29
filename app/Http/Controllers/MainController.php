@@ -28,4 +28,6 @@ class MainController extends Controller
     {
         return view('Homepage.about');
     }
+
+
 }

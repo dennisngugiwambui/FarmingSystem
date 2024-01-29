@@ -14,11 +14,11 @@ use Illuminate\Validation\Rule;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use voku\helper\ASCII;
 use function Laravel\Prompts\error;
 
 class AuthController extends Controller
 {
-
     public function login(Request $request)
     {
         $this->validate($request, [
@@ -115,7 +115,36 @@ class AuthController extends Controller
     }
 
     public function Home()
+   {
+       // Check if the user is authenticated
+       if(Auth::check() && Auth::user()->id)
+       {
+           return view('Farmer.home');
+       }
+       else
+       {
+           // User is not logged in, redirect to login page
+           return redirect()->route('login.auth');
+       }
+   }
+
+    public function Profile()
     {
-        return view('Farmer.home');
+        // Check if the user is authenticated
+        if(Auth::check() && Auth::user()->id)
+        {
+            return view('Farmer.profile');
+        }
+        else
+        {
+            // User is not logged in, redirect to login page
+            return redirect()->route('login.auth');
+        }
     }
+
+    public function regoster_farmers()
+    {
+        return view('Farmer.register_farmers');
+    }
+
 }

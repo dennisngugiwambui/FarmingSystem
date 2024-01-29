@@ -38,11 +38,10 @@ Route::get('/home', [AuthController::class, 'Home'])->name('home')->middleware(J
 Route::get('/weather', [App\Http\Controllers\MainController::class, 'weather'])->name('weather');
 
 Route::get('/about', [App\Http\Controllers\MainController::class, 'about'])->name('about');
+Route::get('/profile', [App\Http\Controllers\Api\AuthController::class, 'Profile'])->name('profile');
 
-// Post
-//Route::post('posts/create', [App\Http\Controllers\Api\PostController::class, 'create'])->middleware('jwtAuth');
-//Route::post('posts/edit', [App\Http\Controllers\Api\PostController::class, 'update'])->middleware('jwtAuth');
-//Route::post('posts/delete', [App\Http\Controllers\Api\PostController::class, 'delete'])->middleware('jwtAuth');
-//Route::get('posts', [App\Http\Controllers\Api\PostController::class, 'posts'])->middleware('jwtAuth');
+Route::get('/register_farmers', [AuthController::class, 'regoster_farmers'])->name('register_farmers');
+
+
 
 
