@@ -9,7 +9,7 @@ class Farmer extends Model
 {
     use HasFactory;
 
-    use protected $fillable =
+    protected $fillable =
     [
         'full_name',
         'national_id',

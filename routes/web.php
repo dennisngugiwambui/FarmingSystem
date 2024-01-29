@@ -41,7 +41,10 @@ Route::get('/about', [App\Http\Controllers\MainController::class, 'about'])->nam
 Route::get('/profile', [App\Http\Controllers\Api\AuthController::class, 'Profile'])->name('profile');
 
 Route::get('/register_farmers', [AuthController::class, 'regoster_farmers'])->name('register_farmers');
+Route::post('/farmersRegister', [App\Http\Controllers\FarmerController::class, 'FarmersRegister'])->name('register.farmer');
 
+
+Route::get('/production_record', [App\Http\Controllers\Api\AuthController::class, 'ProductionRecord'])->name('ProductionRecord');
 
 
 

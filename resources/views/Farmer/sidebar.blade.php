@@ -20,6 +20,12 @@
                 <span>Register Farmers</span>
             </a>
         </li>
+        <li>
+            <a href="/production_record">
+                <i class="material-icons">donut_large</i>
+                <span>Production Record</span>
+            </a>
+        </li>
 
 
     </ul>

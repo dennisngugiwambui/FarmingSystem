@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('farmers', function (Blueprint $table) {
             $table->id();
+            $table->string('registered_by');
+            $table->string('registered_by_phone');
+            $table->string('registered_by_name');
             $table->string('full_name');
             $table->string('national_id');
             $table->string('phone');

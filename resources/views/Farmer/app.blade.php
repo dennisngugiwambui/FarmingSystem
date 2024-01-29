@@ -33,6 +33,8 @@
 </head>
 
 <body class="theme-red">
+
+@include('sweetalert::alert')
 <!-- Page Loader -->
 <div class="page-loader-wrapper">
     <div class="loader">

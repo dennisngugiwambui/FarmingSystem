@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\Farmer;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -145,6 +146,12 @@ class AuthController extends Controller
     public function regoster_farmers()
     {
         return view('Farmer.register_farmers');
+    }
+
+    public function ProductionRecord()
+    {
+        $farmers=Farmer::all();
+        return view('Farmer.production_record', compact('farmers'));
     }
 
 }
