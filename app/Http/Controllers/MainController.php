@@ -23,4 +23,9 @@ class MainController extends Controller
     {
         return view('Homepage.weather');
     }
+
+    public function about()
+    {
+        return view('Homepage.about');
+    }
 }
