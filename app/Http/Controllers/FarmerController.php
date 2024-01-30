@@ -67,4 +67,25 @@ class FarmerController extends Controller
         }
     }
 
+    public function farmersDelete(Request $request)
+    {
+
+        $farmer = Farmer::find($request->id);
+
+       //dd($farmer);
+
+        if (!$farmer) {
+            Alert::info('Error', 'No farmer with selected Id');
+            return redirect()->back();
+        }
+
+
+        $farmer->delete();
+
+        //Toastr::success('Farmer deleted successfully', 'Success');
+        Alert::success('success','farmer deleted successfully')->persistent();
+
+        return redirect()->back()->with('success', 'farmer deleted successfully');
+    }
+
 }

@@ -91,6 +91,16 @@
                                                     <td>{{auth()->user()->email}}</td>
                                                 </tr>
                                                 <tr>
+                                                    <th width="30%">Name</th>
+                                                    <td width="2%">:</td>
+                                                    <td>{{auth()->user()->username}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="30%">Contact</th>
+                                                    <td width="2%">:</td>
+                                                    <td>{{auth()->user()->phone}}</td>
+                                                </tr>
+                                                <tr>
                                                     <th width="30%">UserId</th>
                                                     <td width="2%">:</td>
                                                     <td>{{auth()->user()->id}}</td>
@@ -108,17 +118,17 @@
 
                                             <p><strong>Role:</strong> Farmers are responsible for growing crops, raising animals, and managing agricultural activities. They are involved in planting, cultivating, and harvesting crops, as well as taking care of livestock for meat, milk, or wool production.</p>
 
-                                            <p><strong>Skills:</strong> A successful farmer possesses a wide range of skills, including knowledge of crop cycles, soil health, pest control, and irrigation. They are adept at operating various farm machinery and equipment and have a deep understanding of weather patterns and climate conditions.</p>
+{{--                                            <p><strong>Skills:</strong> A successful farmer possesses a wide range of skills, including knowledge of crop cycles, soil health, pest control, and irrigation. They are adept at operating various farm machinery and equipment and have a deep understanding of weather patterns and climate conditions.</p>--}}
 
-                                            <p><strong>Work Environment:</strong> Farmers work outdoors in all weather conditions. Their daily tasks vary based on the season and may include preparing the soil, planting seeds, tending to crops, and managing livestock. Modern farmers also use technology and data analysis to optimize their farming practices.</p>
+{{--                                            <p><strong>Work Environment:</strong> Farmers work outdoors in all weather conditions. Their daily tasks vary based on the season and may include preparing the soil, planting seeds, tending to crops, and managing livestock. Modern farmers also use technology and data analysis to optimize their farming practices.</p>--}}
 
-                                            <p><strong>Challenges:</strong> Farmers face numerous challenges, including unpredictable weather, pests, diseases, and market fluctuations. Sustainable farming practices, water conservation, and adapting to climate change are ongoing concerns for farmers striving to ensure long-term agricultural viability.</p>
+{{--                                            <p><strong>Challenges:</strong> Farmers face numerous challenges, including unpredictable weather, pests, diseases, and market fluctuations. Sustainable farming practices, water conservation, and adapting to climate change are ongoing concerns for farmers striving to ensure long-term agricultural viability.</p>--}}
 
-                                            <p><strong>Contribution to Society:</strong> Farmers are essential contributors to food production and supply chains. They play a vital role in providing a diverse range of agricultural products, from fruits and vegetables to dairy and meat products. Farmers contribute to rural development and the overall well-being of communities.</p>
+{{--                                            <p><strong>Contribution to Society:</strong> Farmers are essential contributors to food production and supply chains. They play a vital role in providing a diverse range of agricultural products, from fruits and vegetables to dairy and meat products. Farmers contribute to rural development and the overall well-being of communities.</p>--}}
 
-                                            <p><strong>Passion and Dedication:</strong> Farming requires dedication, hard work, and a passion for the land. Farmers often work long hours and remain committed to their crops and animals. Their love for farming goes beyond a profession; it's a way of life rooted in a deep connection with nature.</p>
+{{--                                            <p><strong>Passion and Dedication:</strong> Farming requires dedication, hard work, and a passion for the land. Farmers often work long hours and remain committed to their crops and animals. Their love for farming goes beyond a profession; it's a way of life rooted in a deep connection with nature.</p>--}}
 
-                                            <p>Being a farmer is not just a job; it's a lifestyle that requires resilience, adaptability, and a genuine love for the land. Farmers are the stewards of our environment, providing sustenance for the world and preserving agricultural traditions for future generations.</p>
+{{--                                            <p>Being a farmer is not just a job; it's a lifestyle that requires resilience, adaptability, and a genuine love for the land. Farmers are the stewards of our environment, providing sustenance for the world and preserving agricultural traditions for future generations.</p>--}}
                                         </div>
 
                                     </div>

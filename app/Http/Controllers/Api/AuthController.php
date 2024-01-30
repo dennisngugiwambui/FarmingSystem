@@ -15,6 +15,7 @@ use Illuminate\Validation\Rule;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 use voku\helper\ASCII;
 use function Laravel\Prompts\error;
 
@@ -145,13 +146,48 @@ class AuthController extends Controller
 
     public function regoster_farmers()
     {
-        return view('Farmer.register_farmers');
+        if(Auth::check() && Auth::user()->id)
+        {
+            return view('Farmer.register_farmers');
+        }
+        else
+        {
+            // User is not logged in, redirect to login page
+            return redirect()->route('login.auth');
+        }
     }
 
     public function ProductionRecord()
     {
-        $farmers=Farmer::all();
-        return view('Farmer.production_record', compact('farmers'));
+        if(Auth::check() && Auth::user()->id)
+        {
+            $farmers=Farmer::all();
+            return view('Farmer.production_record', compact('farmers'));
+        }
+        else
+        {
+            // User is not logged in, redirect to login page
+            return redirect()->route('login.auth');
+        }
+
+    }
+
+    public function farmerDetail(Request $request)
+    {
+        if(Auth::check() && Auth::user()->id)
+        {
+            $farmer=Farmer::where('id', $request->id)->get();
+
+            if (!$farmer) {
+                Alert::info('Error', 'No farmer with selected Id');
+            }
+            return view('Farmer.farmer_details');
+        }
+        else
+        {
+            // User is not logged in, redirect to login page
+            return redirect()->route('login.auth');
+        }
     }
 
 }

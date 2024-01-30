@@ -45,6 +45,8 @@ Route::post('/farmersRegister', [App\Http\Controllers\FarmerController::class, '
 
 
 Route::get('/production_record', [App\Http\Controllers\Api\AuthController::class, 'ProductionRecord'])->name('ProductionRecord');
+Route::get('/farm_details', [AuthController::class, 'farmerDetail'])->name('farmerDetail');
 
+Route::any('/deleteFarmer/{id}', [App\Http\Controllers\FarmerController::class, 'farmersDelete'])->name('farmersDelete');
 
 

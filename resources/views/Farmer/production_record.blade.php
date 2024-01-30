@@ -66,48 +66,168 @@
             color: #999;
             cursor: pointer;
         }
-    </style>
+        /* Float cancel and delete buttons and add an equal width */
+        .cancelbtn, .deletebtn {
+            float: left;
+            width: 50%;
+        }
 
+        /* Add a color to the cancel button */
+        .cancelbtn {
+            background-color: #ccc;
+            color: black;
+        }
+
+        /* Add a color to the delete button */
+        .deletebtn {
+            background-color: #f44336;
+        }
+
+        /* Add padding and center-align text to the container */
+        .container {
+            padding: 16px;
+            text-align: center;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: #474e5d;
+            padding-top: 50px;
+        }
+
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+
+        /* Style the horizontal ruler */
+        hr {
+            border: 1px solid #f1f1f1;
+            margin-bottom: 25px;
+        }
+
+        /* The Modal Close Button (x) */
+        .close {
+            position: absolute;
+            right: 35px;
+            top: 15px;
+            font-size: 40px;
+            font-weight: bold;
+            color: #f1f1f1;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #f44336;
+            cursor: pointer;
+        }
+
+        /* Clear floats */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /* Change styles for cancel button and delete button on extra small screens */
+        @media screen and (max-width: 300px) {
+            .cancelbtn, .deletebtn {
+                width: 100%;
+            }
+        }
+    </style>
     <div class="search-container">
-        <input type="text" class="search-input" id="myInput" onkeyup="myFunction()"  placeholder="Search...">
+        <input type="text" class="search-input" id="myInput" onkeyup="myFunction()" placeholder="Search...">
         <i class="fa fa-search search-icon"></i>
     </div>
     <div class="table-responsive">
         <table class="table table-bordered table-striped" id="myTable">
             <thead>
             <tr>
+                <th>#</th>
                 <th>Full Name</th>
                 <th>Farming Type</th>
                 <th>Crop Grown</th>
-{{--                <th>Crop Type</th>--}}
                 <th>Action</th>
             </tr>
             </thead>
             <tbody>
             @foreach($farmers as $farmer)
                 <tr>
+                    <td>{{ $farmer->id }}</td>
                     <td>{{ $farmer->full_name }}</td>
                     <td>{{ $farmer->farming_type }}</td>
                     <td>{{ $farmer->cropsGrown }}</td>
-{{--                    <td>{{ $farmer->crop_type }}</td>--}}
                     <td>
-                        <button class="btn btn-info btn-sm" onclick="editFarmer({{ $farmer->id }})">
+                        <a href="{{ route('farmerDetail', ['id' => $farmer->id]) }}" class="btn btn-info btn-sm">
                             <i class="fa fa-edit">
 
                             </i>
-                        </button>
-                        <button class="btn btn-danger btn-sm" onclick="deleteFarmer({{ $farmer->id }})">
-                            <i class="fa fa-trash">
+                        </a>
 
-                            </i>
+                        <button class="btn btn-danger btn-sm" data-bs-target="#editProduct_{{ $farmer->id }}" onclick="document.getElementById('id01_{{ $farmer->id }}').style.display='block'">
+                            <i class="fa fa-trash"></i>
                         </button>
                     </td>
                 </tr>
-            @endforeach
+                <div id="id01_{{ $farmer->id }}" class="modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <span onclick="document.getElementById('id01_{{ $farmer->id }}').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    <form class="modal-content" action="{{ route('farmersDelete', ['id' => $farmer->id]) }}" method="POST">
+                        @csrf
+                        <div class="container">
+                            <p style="padding: 10px; text-align: center;">Are you sure you want to delete this record?</p>
+                            <button class="btn btn-danger" type="submit">Delete</button>
+                            <button class="btn btn-secondary" type="button" onclick="document.getElementById('id01_{{ $farmer->id }}').style.display='none'">Cancel</button>
+                        </div>
+                    </form>
+                </div>
 
+            @endforeach
             </tbody>
         </table>
     </div>
+
+
+
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+    </script>
+    <script>
+        function editFarmer(farmerId) {
+            // Construct the URL for the farmerdetails route
+            var url = '/farmerdetails/' + farmerId;
+
+            // Redirect to the URL
+            window.location.href = url;
+        }
+    </script>
+
+
+
 
     <script>
         function editFarmer(farmerId) {
@@ -287,6 +407,9 @@
         // yasser.mas2@gmail.com
 
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
 
 
 
