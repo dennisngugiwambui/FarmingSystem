@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Farmer;
+use App\Models\FarmRecord;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -121,7 +122,9 @@ class AuthController extends Controller
        // Check if the user is authenticated
        if(Auth::check() && Auth::user()->id)
        {
-           return view('Farmer.home');
+           $users=User::count();
+           $farmers=Farmer::count();
+           return view('Farmer.home', compact('farmers', 'users'));
        }
        else
        {
@@ -176,12 +179,17 @@ class AuthController extends Controller
     {
         if(Auth::check() && Auth::user()->id)
         {
-            $farmer=Farmer::where('id', $request->id)->get();
+
+            $farmer=Farmer::where('id', $request->id)->first();
+           // $production=FarmRecord::where('farmer_id', $farmer->id)->first();
 
             if (!$farmer) {
                 Alert::info('Error', 'No farmer with selected Id');
             }
-            return view('Farmer.farmer_details');
+
+            $production = FarmRecord::where('farmer_id', $request->id)->first();
+
+            return view('Farmer.farmer_details', compact('farmer', 'production'));
         }
         else
         {

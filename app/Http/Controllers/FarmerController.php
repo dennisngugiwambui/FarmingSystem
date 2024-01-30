@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Farmer;
+use App\Models\FarmRecord;
 use Brian2694\Toastr\Toastr;
 use Illuminate\Http\Request;
 use mysql_xdevapi\Exception;
@@ -86,6 +87,45 @@ class FarmerController extends Controller
         Alert::success('success','farmer deleted successfully')->persistent();
 
         return redirect()->back()->with('success', 'farmer deleted successfully');
+    }
+
+    public function farmersProduction(Request $request)
+    {
+        try {
+            $this->validate($request, [
+                'product_name' => 'required',
+                'quantity' => 'required|numeric',
+                'production_date' => 'required|date',
+                'notes' => 'nullable|string',
+            ]);
+
+            $farmer = Farmer::find($request->id);
+
+            if (!$farmer) {
+                return response()->json(['error' => 'Farmer not found'], 404);
+            }
+
+            $data = new FarmRecord();
+            $data->farmer_id=$farmer->id;
+            $data->farmer = $farmer->full_name;
+            $data->phone = $farmer->phone;
+            $data->product_name = $request->product_name;
+            $data->quantity = $request->quantity;
+            $data->production_date = $request->production_date;
+            $data->notes = $request->notes;
+
+            $data->save();
+            Alert::success('success', 'farmer production added successfully')->persistent();
+            //return response()->json($data);
+
+            return redirect()->back()->with('success', 'production added successfully');
+
+        } catch (\Exception $ex) {
+            // Handle the exception, e.g., log the error
+            //return response()->json(['error' => 'Internal Server Error'], 500);
+            Alert::error('error', $ex->getMessage());
+            return redirect()->back()->with('error', $ex->getMessage());
+        }
     }
 
 }

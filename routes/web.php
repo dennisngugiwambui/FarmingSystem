@@ -50,3 +50,5 @@ Route::get('/farm_details', [AuthController::class, 'farmerDetail'])->name('farm
 Route::any('/deleteFarmer/{id}', [App\Http\Controllers\FarmerController::class, 'farmersDelete'])->name('farmersDelete');
 
 
+Route::post('/farmersProduction/{id}', [App\Http\Controllers\FarmerController::class, 'farmersProduction'])->name('farmersProduction');
+
