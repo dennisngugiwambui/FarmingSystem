@@ -146,7 +146,7 @@ class FarmerController extends Controller
         ];
 
         // Generate PDF from the view
-        $pdf = PDF::loadView('receipts.farmer_receipt', $data);
+        $pdf = PDF::loadView('Farmer.receipt', $data);
 
         // Return the PDF as a response
         return $pdf->stream('farmer_receipt.pdf');
