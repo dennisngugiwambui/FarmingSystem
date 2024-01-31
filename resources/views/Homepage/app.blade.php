@@ -20,6 +20,8 @@
 
     <!-- Libraries Stylesheet -->
     <link href="{{asset('Homepage/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{asset('Homepage/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -75,7 +77,7 @@
             <a href="/weather" class="nav-item nav-link">Weather</a>
             <a href="/visualization" class="nav-item nav-link">Visualizations</a>
             <a href="/news_and_updates" class="nav-item nav-link">News</a>
-            <a href="contact.html" class="nav-item nav-link">Contact</a>
+            <a href="{{route('contact')}}" class="nav-item nav-link">Contact</a>
             <a href="{{route('login.auth')}}" class="nav-item nav-link">Login</a>
         </div>
     </div>

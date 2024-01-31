@@ -62,7 +62,7 @@
                 <div class="header">
                     <div class="row clearfix">
                         <div class="col-xs-12 col-sm-6">
-                            <h2>Registered Production</h2>
+                            <h2>Registered Farmers</h2>
                         </div>
                         <div class="col-xs-12 col-sm-6 align-right">
                             <div class="switch panel-switch-btn">
@@ -82,27 +82,21 @@
                         <table class="table table-bordered table-striped">
                             <thead>
                             <tr>
-                                <th>Farmer Name</th>
-                                <th>Crop</th>
-                                <th>Quantity</th>
-                                <th>Date Registered</th>
+                                <th>#</th>
+                                <th>Full Name</th>
+                                <th>Farming Type</th>
+                                <th>Crop Grown</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <!-- Sample data, replace with actual data from your backend -->
-                            <tr>
-                                <td>John Doe</td>
-                                <td>Tomatoes</td>
-                                <td>50 kg</td>
-                                <td>2024-01-29</td>
-                            </tr>
-                            <tr>
-                                <td>Jane Smith</td>
-                                <td>Carrots</td>
-                                <td>30 kg</td>
-                                <td>2024-01-29</td>
-                            </tr>
-                            <!-- Add more rows as needed -->
+                            @foreach($farmers as $farmer)
+                                <tr>
+                                    <td>{{ $farmer->id }}</td>
+                                    <td>{{ $farmer->full_name }}</td>
+                                    <td>{{ $farmer->farming_type }}</td>
+                                    <td>{{ $farmer->cropsGrown }}</td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>

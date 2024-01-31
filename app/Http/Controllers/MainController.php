@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\FarmRecord;
 use Illuminate\Http\Request;
+use App\Models\Farmer;
+use Illuminate\View\View;
 
 class MainController extends Controller
 {
@@ -32,10 +34,24 @@ class MainController extends Controller
 
     public function visualization()
     {
-        $data=FarmRecord::all();
-        return view('Homepage.graph', compact('data'));
+        $farmRecords = FarmRecord::all();
 
+        // Group data by farmer_id
+        $groupedData = $farmRecords->groupBy('farmer_id');
+
+        // Prepare data for the chart
+        $farmerCounts = $groupedData->map->count()->values()->all(); // Extract values for the counts
+        $farmerLabels = $groupedData->map->first()->pluck('farmer')->all();
+        $farmerColors = ["red", "green", "blue", "orange", "brown"]; // You can customize the colors
+
+        return view('Homepage.graph', compact('farmerLabels', 'farmerCounts', 'farmerColors'));
     }
+
+    public function contact()
+    {
+        return view('Homepage.contact');
+    }
+
 
 
 }

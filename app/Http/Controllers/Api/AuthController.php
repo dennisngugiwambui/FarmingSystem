@@ -126,7 +126,8 @@ class AuthController extends Controller
            $users=User::count();
            $farmers=Farmer::count();
            $production=FarmRecord::count();
-           return view('Farmer.home', compact('farmers', 'users', 'production'));
+           $farmers=Farmer::all();
+           return view('Farmer.home', compact('farmers', 'users', 'production','farmers'));
        }
        else
        {
