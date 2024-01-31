@@ -149,7 +149,7 @@ class FarmerController extends Controller
         $pdf = PDF::loadView('Farmer.receipt', $data);
 
         // Return the PDF as a response
-        return $pdf->stream('farmer_receipt.pdf');
+        return $pdf->stream('farmer_receipt.pdf', compact('data'));
     }
 
 }

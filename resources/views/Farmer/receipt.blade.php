@@ -1,133 +1,172 @@
-<style>
-    #invoice-POS{
-        box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5);
-        padding:2mm;
-        margin: 0 auto;
-        width: 44mm;
-        background: #FFF;
-
-
-        ::selection {background: #f31544; color: #FFF;}
-        ::moz-selection {background: #f31544; color: #FFF;}
-        h1{
-            font-size: 1.5em;
-            color: #222;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meshop Ecommerce</title>
+    <style>
+        body{
+            background-color: #F6F6F6;
+            margin: 0;
+            padding: 0;
         }
-        h2{font-size: .9em;}
-        h3{
-            font-size: 1.2em;
-            font-weight: 300;
-            line-height: 2em;
+        h1,h2,h3,h4,h5,h6{
+            margin: 0;
+            padding: 0;
         }
         p{
-            font-size: .7em;
-            color: #666;
-            line-height: 1.2em;
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            width: 80%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .brand-section{
+            background-color: #0d1033;
+            padding: 10px 40px;
+        }
+        .logo{
+            width: 50%;
         }
 
-        #top, #mid,#bot{ /* Targets all id with 'col-' */
-            border-bottom: 1px solid #EEE;
+        .row{
+            display: flex;
+            flex-wrap: wrap;
         }
-
-        #top{min-height: 100px;}
-        #mid{min-height: 80px;}
-        #bot{ min-height: 50px;}
-
-        #top .logo{
-        //float: left;
-            height: 60px;
-            width: 60px;
-            background: url(http://michaeltruong.ca/images/logo1.png) no-repeat;
-            background-size: 60px 60px;
+        .col-6{
+            width: 50%;
+            flex: 0 0 auto;
         }
-        .clientlogo{
-            float: left;
-            height: 60px;
-            width: 60px;
-            background: url(http://michaeltruong.ca/images/client.jpg) no-repeat;
-            background-size: 60px 60px;
-            border-radius: 50px;
+        .text-white{
+            color: #fff;
         }
-        .info{
-            display: block;
-        //float:left;
-            margin-left: 0;
-        }
-        .title{
+        .company-details{
             float: right;
+            text-align: right;
         }
-        .title p{text-align: right;}
+        .body-section{
+            padding: 16px;
+            border: 1px solid gray;
+        }
+        .heading{
+            font-size: 20px;
+            margin-bottom: 08px;
+        }
+        .sub-heading{
+            color: #262626;
+            margin-bottom: 05px;
+        }
         table{
+            background-color: #fff;
             width: 100%;
             border-collapse: collapse;
         }
-        td{
-        //padding: 5px 0 5px 15px;
-        //border: 1px solid #EEE
+        table thead tr{
+            border: 1px solid #111;
+            background-color: #f2f2f2;
         }
-        .tabletitle{
-        //padding: 5px;
-            font-size: .5em;
-            background: #EEE;
+        table td {
+            vertical-align: middle !important;
+            text-align: center;
         }
-        .service{border-bottom: 1px solid #EEE;}
-        .item{width: 24mm;}
-        .itemtext{font-size: .5em;}
-
-        #legalcopy{
-            margin-top: 5mm;
+        table th, table td {
+            padding-top: 08px;
+            padding-bottom: 08px;
         }
+        .table-bordered{
+            box-shadow: 0px 0px 5px 0.5px gray;
+        }
+        .table-bordered td, .table-bordered th {
+            border: 1px solid #dee2e6;
+        }
+        .text-right{
+            text-align: end;
+        }
+        .w-20{
+            width: 20%;
+        }
+        .float-right{
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<script>
+    // Trigger print when the page is loaded
+    window.onload = function () {
+        // Wait for the window to load completely before triggering the print function
+        window.setTimeout(function () {
+            // Trigger the print function
+            window.print();
+            // Close the window after printing
+            window.onafterprint = function () {
+                window.close();
+            };
+        }, 500);
+    };
+</script>
 
 
-
-    }
-</style>
-
-<div id="invoice-POS">
-
-    <center id="top">
-        <div class="logo"></div>
-        <div class="info">
-            <h2>FARMERS PRODUCTION</h2>
-        </div><!--End Info-->
-    </center><!--End InvoiceTop-->
-
-    <div id="mid">
-        <div class="info">
-            <h2>Contact Info</h2>
-            <p>
-                Address : </br>
-                Email   : </br>
-                Phone   : </br>
-            </p>
+<div class="container">
+    <div class="brand-section">
+        <div class="row">
+            <div class="col-6">
+                <h1 class="text-white">FARMER PRODUCTION</h1>
+            </div>
+            <div class="col-6">
+                <div class="company-details">
+                    <p class="text-white">PRODUCTION RECEIPT</p>
+                    <p class="text-white">CHUKA, KENYA</p>
+                    <p class="text-white">+254794834319</p>
+                </div>
+            </div>
         </div>
-    </div><!--End Invoice Mid-->
+    </div>
 
-    <div id="bot">
-
-        <div id="table">
-            <table>
-                <tr class="tabletitle">
-                    <td class="item"><h2>Item</h2></td>
-                    <td class="Hours"><h2>Qty</h2></td>
-                    <td class="Rate"><h2>Sub Total</h2></td>
-                </tr>
-
-                <tr class="service">
-                    <td class="tableitem"><p class="itemtext"></p></td>
-                    <td class="tableitem"><p class="itemtext">5</p></td>
-                    <td class="tableitem"><p class="itemtext">$375.00</p></td>
-                </tr>
-
-
-
-            </table>
-        </div><!--End Table-->
-
-        <div id="legalcopy">
-            <p class="legal"><strong>Thank you for your production!</strong>
-            </p>
+    <div class="body-section">
+        <div class="row">
+            <div class="col-6">
+                <h2 class="heading">Invoice No.# {{ $production->id }}</h2>
+                <p class="sub-heading">FROM: {{ $production->farmer }}  </p>
+                <p class="sub-heading">CONTACT: {{ $production->phone }}  </p>
+            </div>
         </div>
+    </div>
 
-    </div><!--End InvoiceBot-->
-</div><!--End Invoice-->
+    <div class="body-section">
+        <h3 class="heading">Produced Items</h3>
+        <br>
+        <table class="table-bordered">
+            <thead>
+            <tr>
+                <th>Product Name</th>
+                <th class="w-20">Quantity</th>
+                <th class="w-20">Notes</th>
+                <th class="w-20">Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{ $production->product_name }}</td>
+                <td>{{ $production->quantity }}</td>
+                <td>{{ $production->notes }}</td>
+                <td>{{ $production->production_date }}</td>
+            </tr>
+            </tbody>
+        </table>
+        <br>
+        <h3 class="heading">Production Status: Recorded </h3>
+        <h3 class="heading">Farmer Status: registered</h3>
+    </div>
+
+
+    <div class="body-section">
+        <p>&copy; Copyright 2024/2025
+            <a href="/" class="float-right">Farmer Production</a>
+        </p>
+    </div>
+</div>
+</body>
+</html>
