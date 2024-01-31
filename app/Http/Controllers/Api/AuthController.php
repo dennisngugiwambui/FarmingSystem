@@ -180,16 +180,21 @@ class AuthController extends Controller
         if(Auth::check() && Auth::user()->id)
         {
 
-            $farmer=Farmer::where('id', $request->id)->first();
-           // $production=FarmRecord::where('farmer_id', $farmer->id)->first();
+            //$farmer = Farmer::where('id', $request->id)->first();
+            $farmer = Farmer::with('productions')->find($request->id);
+
 
             if (!$farmer) {
-                Alert::info('Error', 'No farmer with selected Id');
+                Alert::info('Error', 'No farmer with the selected ID');
+               // return redirect()->route('your.redirect.route');
+                return redirect()->back();
             }
 
-            $production = FarmRecord::where('farmer_id', $request->id)->first();
+           // $production = FarmRecord::where('farmer_id', $farmer->id)->first();
+           // $production = FarmRecord::all();
 
-            return view('Farmer.farmer_details', compact('farmer', 'production'));
+           return view('Farmer.farmer_details', compact('farmer'));
+            //return response()->json($farmer);
         }
         else
         {

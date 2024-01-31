@@ -23,4 +23,9 @@ class Farmer extends Model
         'farmSize',
         'cropsGrown',
     ];
+
+    public function productions()
+    {
+        return $this->hasMany(FarmRecord::class, 'farmer_id');
+    }
 }

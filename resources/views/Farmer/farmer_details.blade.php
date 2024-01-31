@@ -380,39 +380,37 @@
                     <tr>
                         <th>#</th>
                         <th>Product Name</th>
-                        <th>quantity</th>
+                        <th>Quantity</th>
                         <th>Production Date</th>
                         <th>Notes</th>
                         <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($production as $farm)
+                    @foreach($farmer->productions as $index => $production)
                         <tr>
-
-                            <td>{{ $farm->product_name }}</td>
-                            <td>{{ $farm->quantity }}</td>
-                            <td>{{ $farm->production_date }}</td>
-                            <td>{{ $farm->notes }}</td>
+                            <td>{{ $index + 1 }}</td>
+                            <td>{{ $production->product_name }}</td>
+                            <td>{{ $production->quantity }}</td>
+                            <td>{{ $production->production_date }}</td>
+                            <td>{{ $production->notes }}</td>
                             <td>
-
-                                <button class="btn btn-danger btn-sm" data-bs-target="#editProduct_{{ $farm->id }}" onclick="document.getElementById('id01_{{ $farm->id }}').style.display='block'">
+                                <button class="btn btn-danger btn-sm" data-bs-target="#editProduct_{{ $production->id }}" onclick="document.getElementById('id01_{{ $production->id }}').style.display='block'">
                                     <i class="fa fa-trash"></i>
                                 </button>
                             </td>
                         </tr>
-                        <div id="id01_{{ $farmer->id }}" class="modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <span onclick="document.getElementById('id01_{{ $farm->id }}').style.display='none'" class="close" title="Close Modal">&times;</span>
-                            <form class="modal-content" action="{{ route('', ['id' => $farm->id]) }}" method="POST">
+                        <div id="id01_{{ $production->id }}" class="modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <span onclick="document.getElementById('id01_{{ $production->id }}').style.display='none'" class="close" title="Close Modal">&times;</span>
+                            <form class="modal-content" action="" method="POST">
                                 @csrf
                                 <div class="container">
                                     <p style="padding: 10px; text-align: center;">Are you sure you want to delete this record?</p>
                                     <button class="btn btn-danger" type="submit">Delete</button>
-                                    <button class="btn btn-secondary" type="button" onclick="document.getElementById('id01_{{ $farm->id }}').style.display='none'">Cancel</button>
+                                    <button class="btn btn-secondary" type="button" onclick="document.getElementById('id01_{{ $production->id }}').style.display='none'">Cancel</button>
                                 </div>
                             </form>
                         </div>
-
                     @endforeach
                     </tbody>
                 </table>
