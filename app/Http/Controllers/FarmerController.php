@@ -152,4 +152,6 @@ class FarmerController extends Controller
         return $pdf->stream('farmer_receipt.pdf', compact('data'));
     }
 
+
+
 }

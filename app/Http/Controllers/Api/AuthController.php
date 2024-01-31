@@ -12,6 +12,7 @@ use Exception;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Validation\Rule;
+use Carbon\Carbon;
 
 
 use App\Http\Controllers\Controller;
@@ -200,6 +201,35 @@ class AuthController extends Controller
         else
         {
             // User is not logged in, redirect to login page
+            return redirect()->route('login.auth');
+        }
+    }
+
+    public function visualization(Request $request)
+    {
+        if (Auth::check() && Auth::user()->id) {
+            // Assuming $mydata is a single FarmRecord instance
+            $mydata = FarmRecord::find($request->id);
+
+            // Fetch all data for further analysis
+            $data = FarmRecord::all();
+
+            // Count crop types
+            $cropData = $data->groupBy('crop_type')->map->count();
+            $cropLabels = $cropData->keys()->toArray();
+            $cropCounts = $cropData->values()->toArray();
+            $cropColors = ["red", "green", "blue", "orange", "brown"]; // Add your desired colors
+
+            // Count records by month
+            $monthData = $data->groupBy(function ($record) {
+                return Carbon::parse($record->production_date)->format('F');
+            })->map->count();
+            $monthLabels = $monthData->keys()->toArray();
+            $monthCounts = $monthData->values()->toArray();
+            $monthColors = ["red", "green", "blue", "orange", "brown"]; // Add your desired colors
+
+            return view('Farmer.visualizations', compact('mydata', 'cropLabels', 'cropCounts', 'cropColors', 'monthLabels', 'monthCounts', 'monthColors'));
+        } else {
             return redirect()->route('login.auth');
         }
     }

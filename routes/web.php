@@ -54,4 +54,4 @@ Route::post('/farmersProduction/{id}', [App\Http\Controllers\FarmerController::c
 
 Route::get('/generate-receipt-pdf/{id}', [App\Http\Controllers\FarmerController::class,'generateReceiptPdf'])->name('generateReceiptPdf');
 
-
+Route::get('/graphs/{id}', [AuthController::class, 'visualization'])->name('visualization');

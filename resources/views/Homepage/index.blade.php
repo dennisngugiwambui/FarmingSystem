@@ -44,55 +44,56 @@
     <!-- Carousel End -->
 
 
-    <!-- Banner Start -->
+    <!-- Production Recording System Banner Start -->
     <div class="container-fluid banner mb-5">
         <div class="container">
             <div class="row gx-0">
                 <div class="col-md-6">
-                    <div class="bg-primary bg-vegetable d-flex flex-column justify-content-center p-5" style="height: 300px;">
-                        <h3 class="text-white mb-3">Organic Vegetables</h3>
-                        <p class="text-white">Dolor magna ipsum elitr sea erat elitr amet ipsum stet justo dolor, amet lorem diam no duo sed dolore amet diam</p>
-                        <a class="text-white fw-bold" href="">Read More<i class="bi bi-arrow-right ms-2"></i></a>
+                    <div class="bg-primary bg-crop d-flex flex-column justify-content-center p-5" style="height: 300px;">
+                        <h3 class="text-white mb-3">Crop Production Records</h3>
+                        <p class="text-white">Efficiently manage and record details of your organic crop production. Track quantities, dates, and more with our production recording system.</p>
+                        <a class="text-white fw-bold" href="/home">Explore Crop Records<i class="bi bi-arrow-right ms-2"></i></a>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="bg-secondary bg-fruit d-flex flex-column justify-content-center p-5" style="height: 300px;">
-                        <h3 class="text-white mb-3">Organic Fruits</h3>
-                        <p class="text-white">Dolor magna ipsum elitr sea erat elitr amet ipsum stet justo dolor, amet lorem diam no duo sed dolore amet diam</p>
-                        <a class="text-white fw-bold" href="">Read More<i class="bi bi-arrow-right ms-2"></i></a>
+                    <div class="bg-secondary bg-livestock d-flex flex-column justify-content-center p-5" style="height: 300px;">
+                        <h3 class="text-white mb-3">Livestock Production Records</h3>
+                        <p class="text-white">Record and manage vital information about your livestock production. Keep track of breeds, quantities, and production dates seamlessly.</p>
+                        <a class="text-white fw-bold" href="/home"">Explore Livestock Records<i class="bi bi-arrow-right ms-2"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Banner Start -->
+    <!-- Production Recording System Banner End -->
 
 
-    <!-- About Start -->
+
+    <!-- Weather Start -->
     <div class="container-fluid about pt-5">
         <div class="container">
             <div class="row gx-5">
                 <div class="col-lg-6 mb-5 mb-lg-0">
                     <div class="d-flex h-100 border border-5 border-primary border-bottom-0 pt-4">
-                        <img class="img-fluid mt-auto mx-auto" src="img/about.png">
+                        <img class="img-fluid mt-auto mx-auto" src="{{asset('Homepage/img/weather.jpg')}}">
                     </div>
                 </div>
                 <div class="col-lg-6 pb-5">
                     <div class="mb-3 pb-2">
                         <h6 class="text-primary text-uppercase">About Us</h6>
-                        <h1 class="display-5">We Produce Organic Food For Your Family</h1>
+                        <h1 class="display-5">Empowering Farmers for Sustainable Agriculture</h1>
                     </div>
-                    <p class="mb-4">Tempor erat elitr at rebum at at clita. Diam dolor diam ipsum et tempor sit. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet magna</p>
+                    <p class="mb-4">Our mission is to empower farmers and enhance sustainable agriculture practices. We believe in providing farmers with the tools and information they need to make informed decisions, ultimately leading to higher yields and healthier crops. </p>
                     <div class="row gx-5 gy-4">
                         <div class="col-sm-6">
                             <i class="fa fa-seedling display-1 text-secondary"></i>
-                            <h4>100% Organic</h4>
-                            <p class="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
+                            <h4>Weather-Informed Agriculture</h4>
+                            <p class="mb-0">Our platform provides farmers with real-time weather information to help them plan and manage their agricultural activities more effectively.</p>
                         </div>
                         <div class="col-sm-6">
                             <i class="fa fa-award display-1 text-secondary"></i>
-                            <h4>Award Winning</h4>
-                            <p class="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
+                            <h4>Award-Winning Recognition</h4>
+                            <p class="mb-0">We recognize and celebrate the dedication and hard work of farmers through annual awards, honoring those who contribute significantly to the agricultural community.</p>
                         </div>
                     </div>
                     <!-- Explore Button -->
@@ -101,22 +102,22 @@
             </div>
         </div>
     </div>
-    <!-- About End -->
+    <!-- Weather End -->
 
 
 
-    <!-- Facts Start -->
-    <div class="container-fluid bg-primary facts py-5 mb-5">
+    <<!-- Project Statistics Start -->
+    <div class="container-fluid bg-primary project-stats py-5 mb-5">
         <div class="container py-5">
             <div class="row gx-5 gy-4">
                 <div class="col-lg-3 col-md-6">
                     <div class="d-flex">
                         <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                            <i class="fa fa-star fs-4 text-white"></i>
+                            <i class="fa fa-database fs-4 text-white"></i>
                         </div>
                         <div class="ps-4">
-                            <h5 class="text-white">Our Experience</h5>
-                            <h1 class="display-5 text-white mb-0" data-toggle="counter-up">12345</h1>
+                            <h5 class="text-white">Data Entries</h5>
+                            <h1 class="display-5 text-white mb-0" data-toggle="counter-up">5000</h1>
                         </div>
                     </div>
                 </div>
@@ -126,8 +127,8 @@
                             <i class="fa fa-users fs-4 text-white"></i>
                         </div>
                         <div class="ps-4">
-                            <h5 class="text-white">Farm Specialist</h5>
-                            <h1 class="display-5 text-white mb-0" data-toggle="counter-up">12345</h1>
+                            <h5 class="text-white">Farmers Connected</h5>
+                            <h1 class="display-5 text-white mb-0" data-toggle="counter-up">1000</h1>
                         </div>
                     </div>
                 </div>
@@ -137,244 +138,177 @@
                             <i class="fa fa-check fs-4 text-white"></i>
                         </div>
                         <div class="ps-4">
-                            <h5 class="text-white">Complete Project</h5>
-                            <h1 class="display-5 text-white mb-0" data-toggle="counter-up">12345</h1>
+                            <h5 class="text-white">Completed Projects</h5>
+                            <h1 class="display-5 text-white mb-0" data-toggle="counter-up">200</h1>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="d-flex">
                         <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                            <i class="fa fa-mug-hot fs-4 text-white"></i>
+                            <i class="fa fa-heart fs-4 text-white"></i>
                         </div>
                         <div class="ps-4">
-                            <h5 class="text-white">Happy Clients</h5>
-                            <h1 class="display-5 text-white mb-0" data-toggle="counter-up">12345</h1>
+                            <h5 class="text-white">Satisfied Clients</h5>
+                            <h1 class="display-5 text-white mb-0" data-toggle="counter-up">200</h1>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Facts End -->
+    <!-- Project Statistics End -->
 
-
-    <!-- Services Start -->
+    <!-- Farming Services Start -->
     <div class="container-fluid py-5">
         <div class="container">
             <div class="row g-5">
                 <div class="col-lg-4 col-md-6">
                     <div class="mb-3">
-                        <h6 class="text-primary text-uppercase">Services</h6>
-                        <h1 class="display-5">Organic Farm Services</h1>
+                        <h6 class="text-green-600 text-uppercase">Our Services</h6>
+                        <h1 class="display-5">Integrated Farming Solutions</h1>
                     </div>
-                    <p class="mb-4">Tempor erat elitr at rebum at at clita. Diam dolor diam ipsum et tempor sit. Clita erat ipsum et lorem et sit sed stet labore</p>
-                    <a href="" class="btn btn-primary py-md-3 px-md-5">Contact Us</a>
+                    <p class="mb-4">Providing comprehensive and sustainable farming services. Our team is dedicated to delivering high-quality products and fostering agricultural excellence.</p>
+                    <a href="#" class="btn btn-green-600 py-md-3 px-md-5">Contact Us</a>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item bg-light text-center p-5">
-                        <i class="fa fa-carrot display-1 text-primary mb-3"></i>
+                        <i class="fa fa-carrot display-1 text-green-600 mb-3"></i>
                         <h4>Fresh Vegetables</h4>
-                        <p class="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
+                        <p class="mb-0">We cultivate and deliver a variety of fresh and organic vegetables to promote healthy living.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item bg-light text-center p-5">
-                        <i class="fa fa-apple-alt display-1 text-primary mb-3"></i>
+                        <i class="fa fa-apple-alt display-1 text-green-600 mb-3"></i>
                         <h4>Fresh Fruits</h4>
-                        <p class="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
+                        <p class="mb-0">Enjoy a selection of naturally ripened fruits, picked at the peak of freshness for your delight.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item bg-light text-center p-5">
-                        <i class="fa fa-dog display-1 text-primary mb-3"></i>
-                        <h4>Healty Cattle</h4>
-                        <p class="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
+                        <i class="fa fa-dog display-1 text-green-600 mb-3"></i>
+                        <h4>Healthy Livestock</h4>
+                        <p class="mb-0">We prioritize the well-being of our livestock, ensuring they are raised in healthy and humane conditions.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item bg-light text-center p-5">
-                        <i class="fa fa-tractor display-1 text-primary mb-3"></i>
-                        <h4>Modern Truck</h4>
-                        <p class="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
+                        <i class="fa fa-tractor display-1 text-green-600 mb-3"></i>
+                        <h4>Modern Farm Equipment</h4>
+                        <p class="mb-0">Utilizing state-of-the-art machinery to enhance efficiency and productivity in all our farming operations.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item bg-light text-center p-5">
-                        <i class="fa fa-seedling display-1 text-primary mb-3"></i>
-                        <h4>Farming Plans</h4>
-                        <p class="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
+                        <i class="fa fa-seedling display-1 text-green-600 mb-3"></i>
+                        <h4>Sustainable Farming Plans</h4>
+                        <p class="mb-0">We offer tailored farming plans that emphasize sustainable practices for long-term environmental and agricultural health.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Services End -->
+    <!-- Farming Services End -->
 
 
-    <!-- Features Start -->
+
+
+    <!-- System Features Start -->
     <div class="container-fluid bg-primary feature py-5 pb-lg-0 my-5">
         <div class="container py-5 pb-lg-0">
             <div class="mx-auto text-center mb-3 pb-2" style="max-width: 500px;">
-                <h6 class="text-uppercase text-secondary">Features</h6>
-                <h1 class="display-5 text-white">Why Choose Us!!!</h1>
+                <h6 class="text-uppercase text-secondary">Key Features</h6>
+                <h1 class="display-5 text-white">Why Choose Our Recording System?</h1>
             </div>
             <div class="row g-5">
                 <div class="col-lg-3">
                     <div class="text-white mb-5">
                         <div class="bg-secondary rounded-pill d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                            <i class="fa fa-seedling fs-4 text-white"></i>
+                            <i class="fa fa-database fs-4 text-white"></i>
                         </div>
-                        <h4 class="text-white">100% Organic</h4>
-                        <p class="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita</p>
+                        <h4 class="text-white">Data Integrity</h4>
+                        <p class="mb-0">Ensure the integrity of your production data with our robust and secure recording system.</p>
                     </div>
                     <div class="text-white">
                         <div class="bg-secondary rounded-pill d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                            <i class="fa fa-award fs-4 text-white"></i>
+                            <i class="fa fa-chart-bar fs-4 text-white"></i>
                         </div>
-                        <h4 class="text-white">Award Winning</h4>
-                        <p class="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita</p>
+                        <h4 class="text-white">Analytics Tools</h4>
+                        <p class="mb-0">Unlock valuable insights with built-in analytics tools for in-depth analysis of your production metrics.</p>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="d-block bg-white h-100 text-center p-5 pb-lg-0">
-                        <p>At et justo elitr amet sea at. Magna et sit vero at ipsum sit et dolores rebum. Magna sea eos sit dolor, ipsum amet no tempor ipsum eirmod lorem eirmod diam tempor dolor eos diam et et diam dolor ea. Clita est rebum amet dolore sit. Dolor stet dolor duo clita, vero dolor ipsum amet dolore magna lorem erat stet sed vero dolor</p>
-                        <img class="img-fluid" src="img/feature.png" alt="">
+                        <p>Our production recording system provides an intuitive and user-friendly interface, ensuring seamless data entry and management. Track and monitor your production activities efficiently, supported by real-time visualizations and reports.</p>
+                        <img class="img-fluid" src="{{asset('Homepage/img/production_feature.jpg')}}" alt="Production Recording System">
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <div class="text-white mb-5">
                         <div class="bg-secondary rounded-pill d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                            <i class="fa fa-tractor fs-4 text-white"></i>
+                            <i class="fa fa-clock fs-4 text-white"></i>
                         </div>
-                        <h4 class="text-white">Modern Farming</h4>
-                        <p class="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita</p>
+                        <h4 class="text-white">Time Efficiency</h4>
+                        <p class="mb-0">Save time and streamline your workflow with our modern and efficient production recording features.</p>
                     </div>
                     <div class="text-white">
                         <div class="bg-secondary rounded-pill d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                            <i class="fa fa-phone-alt fs-4 text-white"></i>
+                            <i class="fa fa-life-ring fs-4 text-white"></i>
                         </div>
-                        <h4 class="text-white">24/7 Support</h4>
-                        <p class="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita</p>
+                        <h4 class="text-white">Dedicated Support</h4>
+                        <p class="mb-0">Our 24/7 support team is ready to assist you, ensuring a smooth experience with our recording system.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Features Start -->
+    <!-- System Features End -->
 
 
-    <!-- Products Start -->
-    <div class="container-fluid py-5">
-        <div class="container">
-            <div class="mx-auto text-center mb-5" style="max-width: 500px;">
-                <h6 class="text-primary text-uppercase">Products</h6>
-                <h1 class="display-5">Our Fresh & Organic Products</h1>
-            </div>
-            <div class="owl-carousel product-carousel px-5">
-                <div class="pb-5">
-                    <div class="product-item position-relative bg-white d-flex flex-column text-center">
-                        <img class="img-fluid mb-4" src="img/product-1.png" alt="">
-                        <h6 class="mb-3">Organic Vegetable</h6>
-                        <h5 class="text-primary mb-0">$19.00</h5>
-                        <div class="btn-action d-flex justify-content-center">
-                            <a class="btn bg-primary py-2 px-3" href=""><i class="bi bi-cart text-white"></i></a>
-                            <a class="btn bg-secondary py-2 px-3" href=""><i class="bi bi-eye text-white"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="pb-5">
-                    <div class="product-item position-relative bg-white d-flex flex-column text-center">
-                        <img class="img-fluid mb-4" src="img/product-2.png" alt="">
-                        <h6 class="mb-3">Organic Vegetable</h6>
-                        <h5 class="text-primary mb-0">$19.00</h5>
-                        <div class="btn-action d-flex justify-content-center">
-                            <a class="btn bg-primary py-2 px-3" href=""><i class="bi bi-cart text-white"></i></a>
-                            <a class="btn bg-secondary py-2 px-3" href=""><i class="bi bi-eye text-white"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="pb-5">
-                    <div class="product-item position-relative bg-white d-flex flex-column text-center">
-                        <img class="img-fluid mb-4" src="img/product-1.png" alt="">
-                        <h6 class="mb-3">Organic Vegetable</h6>
-                        <h5 class="text-primary mb-0">$19.00</h5>
-                        <div class="btn-action d-flex justify-content-center">
-                            <a class="btn bg-primary py-2 px-3" href=""><i class="bi bi-cart text-white"></i></a>
-                            <a class="btn bg-secondary py-2 px-3" href=""><i class="bi bi-eye text-white"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="pb-5">
-                    <div class="product-item position-relative bg-white d-flex flex-column text-center">
-                        <img class="img-fluid mb-4" src="img/product-2.png" alt="">
-                        <h6 class="mb-3">Organic Vegetable</h6>
-                        <h5 class="text-primary mb-0">$19.00</h5>
-                        <div class="btn-action d-flex justify-content-center">
-                            <a class="btn bg-primary py-2 px-3" href=""><i class="bi bi-cart text-white"></i></a>
-                            <a class="btn bg-secondary py-2 px-3" href=""><i class="bi bi-eye text-white"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="pb-5">
-                    <div class="product-item position-relative bg-white d-flex flex-column text-center">
-                        <img class="img-fluid mb-4" src="img/product-1.png" alt="">
-                        <h6 class="mb-3">Organic Vegetable</h6>
-                        <h5 class="text-primary mb-0">$19.00</h5>
-                        <div class="btn-action d-flex justify-content-center">
-                            <a class="btn bg-primary py-2 px-3" href=""><i class="bi bi-cart text-white"></i></a>
-                            <a class="btn bg-secondary py-2 px-3" href=""><i class="bi bi-eye text-white"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Products End -->
-
-
-    <!-- Testimonial Start -->
+    <!-- User Testimonials Start -->
     <div class="container-fluid bg-testimonial py-5 my-5">
         <div class="container py-5">
             <div class="row justify-content-center">
                 <div class="col-lg-7">
                     <div class="owl-carousel testimonial-carousel p-5">
                         <div class="testimonial-item text-center text-white">
-                            <img class="img-fluid mx-auto p-2 border border-5 border-secondary rounded-circle mb-4" src="img/testimonial-2.jpg" alt="">
-                            <p class="fs-5">Dolores sed duo clita justo dolor et stet lorem kasd dolore lorem ipsum. At lorem lorem magna ut et, nonumy labore diam erat. Erat dolor rebum sit ipsum.</p>
+                            <img class="img-fluid mx-auto p-2 border border-5 border-secondary rounded-circle mb-4" src="{{asset('Homepage/img/testimonial-1.jpg')}}" alt="Client Photo 1">
+                            <p class="fs-5">Our production recording system has truly transformed the way we manage and analyze our agricultural data. The intuitive interface and powerful features have made our workflow seamless and efficient.</p>
                             <hr class="mx-auto w-25">
-                            <h4 class="text-white mb-0">Client Name</h4>
+                            <h4 class="text-white mb-0">John Doe, Farm Manager</h4>
                         </div>
                         <div class="testimonial-item text-center text-white">
-                            <img class="img-fluid mx-auto p-2 border border-5 border-secondary rounded-circle mb-4" src="img/testimonial-2.jpg" alt="">
-                            <p class="fs-5">Dolores sed duo clita justo dolor et stet lorem kasd dolore lorem ipsum. At lorem lorem magna ut et, nonumy labore diam erat. Erat dolor rebum sit ipsum.</p>
+                            <img class="img-fluid mx-auto p-2 border border-5 border-secondary rounded-circle mb-4" src="{{asset('Homepage/img/testimonial-2.jpg')}}" alt="Client Photo 2">
+                            <p class="fs-5">The analytics tools provided by the production recording system have given us valuable insights into our production metrics. It's a game-changer for anyone seeking data-driven decision-making in agriculture.</p>
                             <hr class="mx-auto w-25">
-                            <h4 class="text-white mb-0">Client Name</h4>
+                            <h4 class="text-white mb-0">Jane Smith, Agricultural Scientist</h4>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Testimonial End -->
 
 
-    <!-- Team Start -->
+    <!-- User Testimonials End -->
+
+    <!-- Our Team Start -->
     <div class="container-fluid py-5">
         <div class="container">
             <div class="mx-auto text-center mb-5" style="max-width: 500px;">
-                <h6 class="text-primary text-uppercase">The Team</h6>
-                <h1 class="display-5">We Are Professional Organic Farmers</h1>
+                <h6 class="text-primary text-uppercase">Meet Our Experts</h6>
+                <h1 class="display-5">Dedicated Professionals Behind Our System</h1>
             </div>
             <div class="row g-5">
                 <div class="col-lg-4 col-md-6">
                     <div class="row g-0">
                         <div class="col-10">
                             <div class="position-relative">
-                                <img class="img-fluid w-100" src="img/team-1.jpg" alt="">
+                                <img class="img-fluid w-100" src="{{asset('Homepage/img/team-1.jpg')}}" alt="Team Member 1">
                                 <div class="position-absolute start-0 bottom-0 w-100 py-3 px-4" style="background: rgba(52, 173, 84, .85);">
-                                    <h4 class="text-white">Farmer Name</h4>
-                                    <span class="text-white">Designation</span>
+                                    <h4 class="text-white">John Farmer</h4>
+                                    <span class="text-white">Lead Agriculturalist</span>
                                 </div>
                             </div>
                         </div>
@@ -392,10 +326,10 @@
                     <div class="row g-0">
                         <div class="col-10">
                             <div class="position-relative">
-                                <img class="img-fluid w-100" src="img/team-2.jpg" alt="">
+                                <img class="img-fluid w-100" src="{{asset('Homepage/img/team-2.jpg')}}" alt="Team Member 2">
                                 <div class="position-absolute start-0 bottom-0 w-100 py-3 px-4" style="background: rgba(52, 173, 84, .85);">
-                                    <h4 class="text-white">Farmer Name</h4>
-                                    <span class="text-white">Designation</span>
+                                    <h4 class="text-white">Jane AgroExpert</h4>
+                                    <span class="text-white">Agricultural Scientist</span>
                                 </div>
                             </div>
                         </div>
@@ -413,10 +347,10 @@
                     <div class="row g-0">
                         <div class="col-10">
                             <div class="position-relative">
-                                <img class="img-fluid w-100" src="img/team-3.jpg" alt="">
+                                <img class="img-fluid w-100" src="{{asset('Homepage/img/team-3.jpg')}}" alt="Team Member 3">
                                 <div class="position-absolute start-0 bottom-0 w-100 py-3 px-4" style="background: rgba(52, 173, 84, .85);">
-                                    <h4 class="text-white">Farmer Name</h4>
-                                    <span class="text-white">Designation</span>
+                                    <h4 class="text-white">Alex CropSpecialist</h4>
+                                    <span class="text-white">Crop Management Expert</span>
                                 </div>
                             </div>
                         </div>
@@ -433,47 +367,51 @@
             </div>
         </div>
     </div>
-    <!-- Team End -->
+    <!-- Our Team End -->
 
 
-    <!-- Blog Start -->
+
+
+
+
+    <!-- Insights from the Field Start -->
     <div class="container-fluid py-5">
         <div class="container">
             <div class="mx-auto text-center mb-5" style="max-width: 500px;">
-                <h6 class="text-primary text-uppercase">Our Blog</h6>
-                <h1 class="display-5">Latest Articles From Our Blog Post</h1>
+                <h6 class="text-primary text-uppercase">Field Insights</h6>
+                <h1 class="display-5">Discover the Latest Updates from Our Production Records</h1>
             </div>
             <div class="row g-5">
                 <div class="col-lg-4">
                     <div class="blog-item position-relative overflow-hidden">
-                        <img class="img-fluid" src="img/blog-1.jpg" alt="">
-                        <a class="blog-overlay" href="">
-                            <h4 class="text-white">Lorem elitr magna stet eirmod labore amet</h4>
-                            <span class="text-white fw-bold">Jan 01, 2050</span>
+                        <img class="img-fluid" src="{{ asset('Homepage/img/blog-1.jpg') }}" alt="Field Insights 1">
+                        <a class="blog-overlay" href="#">
+                            <h4 class="text-white">Optimizing Crop Yields Through Advanced Techniques</h4>
+                            <span class="text-white fw-bold">Feb 15, 2024</span>
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="blog-item position-relative overflow-hidden">
-                        <img class="img-fluid" src="img/blog-2.jpg" alt="">
-                        <a class="blog-overlay" href="">
-                            <h4 class="text-white">Lorem elitr magna stet eirmod labore amet</h4>
-                            <span class="text-white fw-bold">Jan 01, 2050</span>
+                        <img class="img-fluid" src="{{ asset('Homepage/img/blog-2.jpg') }}" alt="Field Insights 2">
+                        <a class="blog-overlay" href="#">
+                            <h4 class="text-white">Effective Pest Control Strategies for Healthy Crops</h4>
+                            <span class="text-white fw-bold">Feb 28, 2024</span>
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="blog-item position-relative overflow-hidden">
-                        <img class="img-fluid" src="img/blog-3.jpg" alt="">
-                        <a class="blog-overlay" href="">
-                            <h4 class="text-white">Lorem elitr magna stet eirmod labore amet</h4>
-                            <span class="text-white fw-bold">Jan 01, 2050</span>
+                        <img class="img-fluid" src="{{ asset('Homepage/img/blog-3.jpg') }}" alt="Field Insights 3">
+                        <a class="blog-overlay" href="#">
+                            <h4 class="text-white">Utilizing Technology in Farm Management</h4>
+                            <span class="text-white fw-bold">Mar 10, 2024</span>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Blog End -->
+    <!-- Insights from the Field End -->
 
 @endsection

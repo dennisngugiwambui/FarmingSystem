@@ -26,6 +26,18 @@
                 <span>Production Record</span>
             </a>
         </li>
+        <li>
+            <a href="{{route('visualization', ['id', auth()->user()->id])}}">
+                <i class="material-icons">donut_large</i>
+                <span>Visualizations</span>
+            </a>
+        </li>
+        <li>
+            <form action="{{ route('logout') }}" method="post">
+                @csrf
+                <button type="submit" class="logout-btn"> <i class="material-icons">input</i>Logout</button>
+            </form>
+        </li>
 
 
     </ul>

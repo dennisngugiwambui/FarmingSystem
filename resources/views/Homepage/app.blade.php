@@ -72,20 +72,11 @@
         <div class="navbar-nav mx-auto py-0">
             <a href="{{route('index')}}" class="nav-item nav-link active">Home</a>
             <a href="{{route('about')}}" class="nav-item nav-link">About</a>
-            <a href="/service" class="nav-item nav-link">Service</a>
-            <a href="#" class="nav-item nav-link">Product</a>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                <div class="dropdown-menu m-0">
-                    <a href="blog.html" class="dropdown-item">Blog Grid</a>
-                    <a href="detail.html" class="dropdown-item">Blog Detail</a>
-                    <a href="feature.html" class="dropdown-item">Features</a>
-                    <a href="team.html" class="dropdown-item">The Team</a>
-                    <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                </div>
-            </div>
+            <a href="/weather" class="nav-item nav-link">Weather</a>
+            <a href="/visualization" class="nav-item nav-link">Visualizations</a>
+            <a href="/news_and_updates" class="nav-item nav-link">News</a>
             <a href="contact.html" class="nav-item nav-link">Contact</a>
-            <a href="{{route('login.auth')}}" class="nav-item nav-link">Login12</a>
+            <a href="{{route('login.auth')}}" class="nav-item nav-link">Login</a>
         </div>
     </div>
 </nav>
