@@ -171,6 +171,7 @@ return [
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
         Brian2694\Toastr\ToastrServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
     ])->toArray(),
 
     /*
@@ -188,7 +189,7 @@ return [
         // 'Example' => App\Facades\Example::class,
         'Toastr'  => Brian2694\Toastr\Facades\Toastr::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
-
+        'PDF' => Barryvdh\DomPDF\Facade::class,
     ])->toArray(),
 
 ];

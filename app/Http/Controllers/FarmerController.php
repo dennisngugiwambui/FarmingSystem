@@ -8,6 +8,8 @@ use Brian2694\Toastr\Toastr;
 use Illuminate\Http\Request;
 use mysql_xdevapi\Exception;
 use RealRashid\SweetAlert\Facades\Alert;
+use PDF;
+use Illuminate\Support\Facades\View;
 
 
 class FarmerController extends Controller
@@ -126,6 +128,28 @@ class FarmerController extends Controller
             Alert::error('error', $ex->getMessage());
             return redirect()->back()->with('error', $ex->getMessage());
         }
+    }
+
+    public function generateReceiptPdf($id)
+    {
+        $production = FarmRecord::find($id);
+
+        // Check if the record exists
+        if (!$production) {
+            //abort(404);
+            Alert::error('error', 'error while loading the id')->persistent();
+        }
+
+        // Pass data to the view
+        $data = [
+            'production' => $production,
+        ];
+
+        // Generate PDF from the view
+        $pdf = PDF::loadView('receipts.farmer_receipt', $data);
+
+        // Return the PDF as a response
+        return $pdf->stream('farmer_receipt.pdf');
     }
 
 }

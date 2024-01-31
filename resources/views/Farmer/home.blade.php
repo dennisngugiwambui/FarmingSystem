@@ -26,7 +26,7 @@
                 </div>
                 <div class="content">
                     <div class="text">STATISTICS</div>
-                    <div class="number count-to" data-from="0" data-to="12" data-speed="1000" data-fresh-interval="20"></div>
+                    <div class="number count-to" data-from="0" data-to="{{$production}}" data-speed="1000" data-fresh-interval="20"></div>
                 </div>
             </div>
         </div>
@@ -37,7 +37,7 @@
                 </div>
                 <div class="content">
                     <div class="text">FARM RECORDS</div>
-                    <div class="number count-to" data-from="0" data-to="20" data-speed="1000" data-fresh-interval="20"></div>
+                    <div class="number count-to" data-from="0" data-to="{{$production}}" data-speed="1000" data-fresh-interval="20"></div>
                 </div>
             </div>
         </div>

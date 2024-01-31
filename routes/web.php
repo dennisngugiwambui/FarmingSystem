@@ -52,3 +52,6 @@ Route::any('/deleteFarmer/{id}', [App\Http\Controllers\FarmerController::class, 
 
 Route::post('/farmersProduction/{id}', [App\Http\Controllers\FarmerController::class, 'farmersProduction'])->name('farmersProduction');
 
+Route::get('/generate-receipt-pdf/{id}', [App\Http\Controllers\FarmerController::class,'generateReceiptPdf'])->name('generateReceiptPdf');
+
+

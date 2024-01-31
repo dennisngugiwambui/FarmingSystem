@@ -395,22 +395,11 @@
                             <td>{{ $production->production_date }}</td>
                             <td>{{ $production->notes }}</td>
                             <td>
-                                <button class="btn btn-danger btn-sm" data-bs-target="#editProduct_{{ $production->id }}" onclick="document.getElementById('id01_{{ $production->id }}').style.display='block'">
-                                    <i class="fa fa-trash"></i>
-                                </button>
+                                <a href="{{ route('generateReceiptPdf', ['id' => $production->id]) }}" class="btn btn-danger btn-sm">
+                                    <i class="fa fa-print"></i>
+                                </a>
                             </td>
                         </tr>
-                        <div id="id01_{{ $production->id }}" class="modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <span onclick="document.getElementById('id01_{{ $production->id }}').style.display='none'" class="close" title="Close Modal">&times;</span>
-                            <form class="modal-content" action="" method="POST">
-                                @csrf
-                                <div class="container">
-                                    <p style="padding: 10px; text-align: center;">Are you sure you want to delete this record?</p>
-                                    <button class="btn btn-danger" type="submit">Delete</button>
-                                    <button class="btn btn-secondary" type="button" onclick="document.getElementById('id01_{{ $production->id }}').style.display='none'">Cancel</button>
-                                </div>
-                            </form>
-                        </div>
                     @endforeach
                     </tbody>
                 </table>
@@ -492,5 +481,30 @@
             x[n].className += " active";
         }
     </script>
+
+        <script>
+            function myFunction() {
+                // Declare variables
+                var input, filter, table, tr, td, i, txtValue;
+                input = document.getElementById("myInput");
+                filter = input.value.toUpperCase();
+                table = document.getElementById("myTable");
+                tr = table.getElementsByTagName("tr");
+
+                // Loop through all table rows and hide those that don't match the search query
+                for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[1]; // Adjust the index based on the column you want to filter
+                    if (td) {
+                        txtValue = td.textContent || td.innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                }
+            }
+        </script>
+
 
 @endsection
