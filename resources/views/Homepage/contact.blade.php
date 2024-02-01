@@ -74,7 +74,7 @@
                             </div>
                             <div class="ps-3">
                                 <h5 class="text-white">Call Us</h5>
-                                <span class="text-white">+254 948319</span>
+                                <span class="text-white">+254 7948319</span>
                             </div>
                         </div>
                     </div>

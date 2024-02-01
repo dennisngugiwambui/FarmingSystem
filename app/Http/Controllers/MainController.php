@@ -52,6 +52,11 @@ class MainController extends Controller
         return view('Homepage.contact');
     }
 
+    public function news()
+    {
+        return View('Homepage.news_and_updates');
+    }
+
 
 
 }

@@ -59,3 +59,7 @@ Route::get('/graphs/{id}', [AuthController::class, 'visualization'])->name('visu
 Route::get('/visualization', [App\Http\Controllers\MainController::class, 'visualization']);
 
 Route::get('/contact', [App\Http\Controllers\MainController::class, 'contact'])->name('contact');
+
+Route::get('/news_and_updates', [App\Http\Controllers\MainController::class, 'news'])->name('news');
+
+Route::get('/news_entries', [AuthController::class, 'newsEntries'])->name('newsEntries');

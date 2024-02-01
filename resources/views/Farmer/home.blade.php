@@ -48,7 +48,7 @@
                 </div>
                 <div class="content">
                     <div class="text">TOTAL FARMERS</div>
-                    <div class="number count-to" data-from="0" data-to="{{$farmers}}" data-speed="1000" data-fresh-interval="20"></div>
+                    <div class="number count-to" data-from="0" data-to="{{$farmer}}" data-speed="1000" data-fresh-interval="20"></div>
                 </div>
             </div>
         </div>
@@ -65,21 +65,23 @@
                             <h2>Registered Farmers</h2>
                         </div>
                         <div class="col-xs-12 col-sm-6 align-right">
-                            <div class="switch panel-switch-btn">
-                                <span class="m-r-10 font-12">Search</span>
-                                <!-- Fancy-looking search tab -->
-                                <div class="search-tab">
-                                    <input type="text" id="searchInput" placeholder="Search...">
-                                    <button onclick="searchTable()">Search</button>
+                            <div class="row clearfix">
+                                <div class="switch panel-switch-btn">
+                                    <div class="search-container">
+                                        <!-- Corrected id to match the JavaScript function -->
+                                        <input type="text" class="search-input" id="searchInput" onkeyup="searchTable()" placeholder="Search...">
+                                        <i class="fa fa-search search-icon"></i>
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
                 <div class="body">
                     <!-- Enhanced styling for the table -->
                     <div class="table-responsive">
-                        <table class="table table-bordered table-striped">
+                        <table class="table table-bordered table-striped" id="myTable">
                             <thead>
                             <tr>
                                 <th>#</th>
@@ -105,6 +107,7 @@
         </div>
     </div>
 
+
     <script>
         // JavaScript function for searching the table
         function searchTable() {
@@ -116,6 +119,29 @@
 
             for (i = 0; i < tr.length; i++) {
                 td = tr[i].getElementsByTagName("td")[0]; // Change index based on the column you want to search
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+
+    <script>
+        // JavaScript function for searching the table
+        function searchTable() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable"); // Corrected table selection
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[1]; // Changed index to 1 for the "Full Name" column
                 if (td) {
                     txtValue = td.textContent || td.innerText;
                     if (txtValue.toUpperCase().indexOf(filter) > -1) {

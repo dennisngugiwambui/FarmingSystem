@@ -33,6 +33,12 @@
             </a>
         </li>
         <li>
+            <a href="{{route('newsEntries')}}">
+                <i class="material-icons">donut_large</i>
+                <span>Create News</span>
+            </a>
+        </li>
+        <li>
             <form action="{{ route('logout') }}" method="post">
                 @csrf
                 <button type="submit" class="logout-btn"> <i class="material-icons">input</i>Logout</button>

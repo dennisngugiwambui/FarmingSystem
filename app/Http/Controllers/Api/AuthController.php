@@ -124,10 +124,10 @@ class AuthController extends Controller
        if(Auth::check() && Auth::user()->id)
        {
            $users=User::count();
-           $farmers=Farmer::count();
+           $farmer=Farmer::count();
            $production=FarmRecord::count();
            $farmers=Farmer::all();
-           return view('Farmer.home', compact('farmers', 'users', 'production','farmers'));
+           return view('Farmer.home', compact('farmer', 'users', 'production','farmers'));
        }
        else
        {
@@ -233,6 +233,21 @@ class AuthController extends Controller
         } else {
             return redirect()->route('login.auth');
         }
+    }
+
+    public function newsEntries()
+    {
+        if(Auth::check() && Auth::user()->id)
+        {
+
+            return view('Farmer.news_entries');
+        }
+        else
+        {
+            // User is not logged in, redirect to login page
+            return redirect()->route('login.auth');
+        }
+
     }
 
 }
