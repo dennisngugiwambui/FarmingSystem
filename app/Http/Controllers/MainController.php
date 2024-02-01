@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\FarmRecord;
+use App\Models\NewsEntris;
 use Illuminate\Http\Request;
 use App\Models\Farmer;
 use Illuminate\View\View;
@@ -54,7 +55,8 @@ class MainController extends Controller
 
     public function news()
     {
-        return View('Homepage.news_and_updates');
+        $newsArticles=NewsEntris::all();
+        return View('Homepage.news_and_updates', compact('newsArticles'));
     }
 
 

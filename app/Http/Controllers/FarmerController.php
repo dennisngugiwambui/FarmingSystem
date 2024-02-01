@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Farmer;
 use App\Models\FarmRecord;
+use App\Models\NewsEntris;
 use Brian2694\Toastr\Toastr;
 use Illuminate\Http\Request;
 use mysql_xdevapi\Exception;
@@ -150,6 +151,41 @@ class FarmerController extends Controller
 
         // Return the PDF as a response
         return $pdf->stream('farmer_receipt.pdf', compact('data'));
+    }
+
+    public function newsGet(Request $request)
+    {
+        try {
+            // Validate the request data
+            $validatedData = $request->validate([
+                'title' => 'required|string|max:255',
+                'description' => 'required|string',
+                'imageUrl' => 'required|url',
+                'read_more' => 'required|url',
+            ]);
+
+            $data = new NewsEntris();
+
+            $data->title = $validatedData['title'];
+            $data->description = $validatedData['description'];
+            $data->imageUrl = $validatedData['imageUrl'];
+            $data->read_more = $validatedData['read_more'];
+            $data->published = now()->format('jS F, Y: g:i a');
+
+
+            // Save the data to the database
+            $data->save();
+
+            Alert::success('success','news added successfully')->persistent();
+
+            return  redirect()->back()->with('success', 'news added successfully');
+
+            //return response()->json($data);
+        } catch (\Exception $e) {
+            // Handle the exception (you can log or return an error response)
+            Alert::error('error', $e->getMessage());
+            return redirect()->back();
+        }
     }
 
 

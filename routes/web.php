@@ -63,3 +63,5 @@ Route::get('/contact', [App\Http\Controllers\MainController::class, 'contact'])-
 Route::get('/news_and_updates', [App\Http\Controllers\MainController::class, 'news'])->name('news');
 
 Route::get('/news_entries', [AuthController::class, 'newsEntries'])->name('newsEntries');
+
+Route::post('/newsGet', [App\Http\Controllers\FarmerController::class, 'newsGet'])->name('newsGet');

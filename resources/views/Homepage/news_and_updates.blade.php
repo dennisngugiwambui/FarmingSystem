@@ -11,19 +11,20 @@
                         <p class="card-text">Stay up-to-date with the latest news and updates concerning farm productions.</p>
                         <!-- News articles go here -->
                         <div class="row">
-{{--                            @foreach($newsArticles as $article)--}}
+                            @foreach($newsArticles as $article)
                                 <div class="col-md-6">
                                     <div class="card mb-4">
-                                        <img src="" class="card-img-top" alt="">
+                                        <img src="{{$article->imageUrl}}" class="card-img-top" alt="">
                                         <div class="card-body">
-                                            <h5 class="card-title"></h5>
-                                            <p class="card-text"></p>
-                                            <a href="" class="btn btn-primary">Read More</a>
+                                            <h5 class="card-title">{{$article->title}}</h5>
+                                            <p class="card-text">{{$article->description}}</p>
+                                            <p class="card-footer">Published at: {{$article->published}}</p>
+                                            <a href="{{$article->read_more}}"  target="_blank" class="btn btn-primary">Read More</a>
                                         </div>
                                     </div>
                                 </div>
 
-{{--                            @endforeach--}}
+                            @endforeach
 
                             <!-- Add more news articles as needed -->
                         </div>
