@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use App\Models\FarmRecord;
 use App\Models\NewsEntris;
 use Illuminate\Http\Request;
 use App\Models\Farmer;
 use Illuminate\View\View;
+use RealRashid\SweetAlert\Facades\Alert;
+use App\Mail\ContactFormMail;
+use Illuminate\Support\Facades\Mail;
 
 class MainController extends Controller
 {
@@ -57,6 +61,34 @@ class MainController extends Controller
     {
         $newsArticles=NewsEntris::all();
         return View('Homepage.news_and_updates', compact('newsArticles'));
+    }
+
+    public function submitContactForm(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|email',
+            'subject' => 'required|string',
+            'message' => 'required|string',
+        ]);
+
+        $data = new Contact();
+
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->subject = $request->subject;
+        $data->message = $request->message;
+
+        // Uncomment or remove the following line to allow email sending
+        //dd($data);
+        $data->save();
+
+        // Send email
+        Mail::to('recipient-dellyit001@gmail.com')->send(new ContactFormMail($data));
+
+        Alert::success('success', 'Thanks for contacting us');
+
+        return redirect()->back()->with('success', 'We will contact you back soon.');
     }
 
 
