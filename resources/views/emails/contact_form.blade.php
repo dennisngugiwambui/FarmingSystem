@@ -1,16 +1,12 @@
-<x-mail::message>
-    <h2>Introduction</h2>
+@component('mail::message')
+    <h2>New Contact Form Submission</h2>
 
-    <p>Name: {{ $data->name }}</p>
-    <p>Email: {{ $data->email }}</p>
-    <p>Subject: {{ $data->subject }}</p>
-    <p>Message: {{ $data->message }}</p>
+    <strong>Name:</strong> {{ $data->name }}
+    <strong>Email:</strong> {{ $data->email }}
+    <strong>Subject:</strong> {{ $data->subject }}
+    <strong>Message:</strong> {{ $data->message }}
 
-    <x-mail::button :url="''">
-        Button Text
-    </x-mail::button>
+    <hr>
 
-    <p>Thanks,<br>
-        {{ config('app.name') }}
-    </p>
-</x-mail::message>
+    <p>Thank you for contacting us!</p>
+@endcomponent

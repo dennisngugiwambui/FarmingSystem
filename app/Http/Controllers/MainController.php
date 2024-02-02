@@ -84,7 +84,7 @@ class MainController extends Controller
         $data->save();
 
         // Send email
-        Mail::to('recipient-dellyit001@gmail.com')->send(new ContactFormMail($data));
+        Mail::to('recipient-dennisngugi195@gmail.com')->send(new ContactFormMail($data));
 
         Alert::success('success', 'Thanks for contacting us');
 
