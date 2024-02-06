@@ -160,24 +160,15 @@
             <div class="form-group">
                 <label for="experience">Farming Type:</label>
                 <select id="farming_type" name="farming_type"  class="myselect {{ $errors->has('farming_type') ? ' is-invalid' : '' }}" style="width: 100%;">
-                    <option value="Commercial farming">Commercial farming</option>
-                    <option value="Extensive farming">Extensive farming</option>
-                    <option value="Mixed farming">Mixed farming</option>
-                    <option value="Nomadic farming">Nomadic farming</option>
-                    <option value="Organic farming">Organic farming</option>
-                    <option value="Pastoral farming">Pastoral farming</option>
-                    <option value="Arable farming">Arable farming</option>
-                    <option value="Aquaculture">Aquaculture</option>
-                    <option value="Subsistence farming">Subsistence farming</option>
-                    <option value="Poultry farming">Poultry farming</option>
-                    <option value="Subsistence">Subsistence</option>
-                    <option value="Dry farming">Dry farming</option>
-                    <option value="Flower farm">Flower farm</option>
-                    <option value="Ranch">Ranch</option>
-                    <option value="Shifting agriculture">Shifting agriculture</option>
-                    <option value="Urban farming">Urban farming</option>
-                    <option value="Apiary">Apiary</option>
-                    <option value="Plantation farming">Plantation farming</option>
+                    <option value="Commercial farming">Nyeri - Subsistence farming</option>
+                    <option value="Extensive farming">Chuka - Mixed farming</option>
+                    <option value="Mixed farming">Nakuru - Commercial farming</option>
+                    <option value="Nomadic farming">Nyahururu - Arable farming</option>
+                    <option value="Organic farming">Nairobi - Intensive farming</option>
+                    <option value="Pastoral farming">Busia - Dairy farming</option>
+                    <option value="Arable farming">Kakamega - Pastoral farming</option>
+                    <option value="Aquaculture">Kiambu - Organic farming</option>
+
                 </select>
                 @if ($errors->has('farming_type'))
                     <span class="invalid-feedback text-red">
