@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Models\Contact;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -18,9 +19,9 @@ class EmailNotification extends Notification
      *
      * @return void
      */
-    public function __construct($details)
+    public function __construct(Contact $details)
     {
-        $this->details=$details;
+        $this->details = $details;
     }
 
     /**
@@ -46,7 +47,7 @@ class EmailNotification extends Notification
             ->greeting($this->details['greeting'])
             ->line($this->details['name'])
             ->line($this->details['email'])
-            ->action($this->details['subject'])
+            ->line($this->details['subject'])
             ->line($this->details['message']);
     }
 

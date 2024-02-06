@@ -14,17 +14,18 @@ class ContactFormMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $data;
+    public $contact;
 
     /**
      * Create a new message instance.
      *
      * @param \App\Models\Contact $data
      */
-    public function __construct(Contact $data)
+    public function __construct($contact)
     {
-        $this->data = $data;
+        $this->$contact = $contact;
     }
+
 
     /**
      * Get the message envelope.

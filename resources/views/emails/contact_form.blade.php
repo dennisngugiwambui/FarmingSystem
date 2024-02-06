@@ -1,10 +1,10 @@
 @component('mail::message')
     <h2>New Contact Form Submission</h2>
 
-    <strong>Name:</strong> {{ $data->name }}
-    <strong>Email:</strong> {{ $data->email }}
-    <strong>Subject:</strong> {{ $data->subject }}
-    <strong>Message:</strong> {{ $data->message }}
+    <strong>Name:</strong> {{ $contact->name }}
+    <strong>Email:</strong> {{ $contact->email }}
+    <strong>Subject:</strong> {{ $contact->subject }}
+    <strong>Message:</strong> {{ $contact->message }}
 
     <hr>
 

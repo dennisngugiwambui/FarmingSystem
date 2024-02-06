@@ -8,7 +8,5 @@ use Illuminate\Notifications\Notifiable;
 
 class Contact extends Model
 {
-    use HasFactory;
-
-    use Notifiable;
+    use HasFactory, Notifiable;
 }

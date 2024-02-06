@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use App\Models\FarmRecord;
 use App\Models\NewsEntris;
+use App\Models\User;
 use App\Notifications\EmailNotification;
 use Illuminate\Http\Request;
 use App\Models\Farmer;
-use Illuminate\Notifications\Notification;
 use Illuminate\View\View;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Mail\ContactFormMail;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Notification;
 
 class MainController extends Controller
 {
@@ -74,31 +75,25 @@ class MainController extends Controller
             'message' => 'required|string',
         ]);
 
-        $data='dennisngugi1234@gmail.com';
+        $contact = new Contact();
+        $contact->name = $request->name;
+        $contact->email = $request->email;
+        $contact->subject = $request->subject;
+        $contact->message = $request->message;
 
-        $etails = new Contact();
+        // Save the contact
+        $contact->save();
 
-        $details = [
-            'greeting'=>'Hello, Here is a new contact form',
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'subject'=>$request->subject,
-            'message'=>$request->message,
-        ];
-
-        // Uncomment or remove the following line to allow email sending
-        //dd($data);
-        $etails->save();
-
-        Notification::send($data, new EmailNotification($details));
-
-        // Send email
-       // Mail::to('recipient-dennisngugi195@gmail.com')->send(new ContactFormMail($data));
+        // Send notification
+        // Send notification
+        $contact->notify(new EmailNotification($contact));
 
         Alert::success('success', 'Thanks for contacting us');
 
         return redirect()->back()->with('success', 'We will contact you back soon.');
     }
+
+
 
 
 
