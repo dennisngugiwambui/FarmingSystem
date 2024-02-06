@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use App\Models\FarmRecord;
 use App\Models\NewsEntris;
+use App\Notifications\EmailNotification;
 use Illuminate\Http\Request;
 use App\Models\Farmer;
+use Illuminate\Notifications\Notification;
 use Illuminate\View\View;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Mail\ContactFormMail;
@@ -72,19 +74,26 @@ class MainController extends Controller
             'message' => 'required|string',
         ]);
 
-        $data = new Contact();
+        $data='dennisngugi1234@gmail.com';
 
-        $data->name = $request->name;
-        $data->email = $request->email;
-        $data->subject = $request->subject;
-        $data->message = $request->message;
+        $etails = new Contact();
+
+        $details = [
+            'greeting'=>'Hello, Here is a new contact form',
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'subject'=>$request->subject,
+            'message'=>$request->message,
+        ];
 
         // Uncomment or remove the following line to allow email sending
         //dd($data);
-        $data->save();
+        $etails->save();
+
+        Notification::send($data, new EmailNotification($details));
 
         // Send email
-        Mail::to('recipient-dennisngugi195@gmail.com')->send(new ContactFormMail($data));
+       // Mail::to('recipient-dennisngugi195@gmail.com')->send(new ContactFormMail($data));
 
         Alert::success('success', 'Thanks for contacting us');
 
